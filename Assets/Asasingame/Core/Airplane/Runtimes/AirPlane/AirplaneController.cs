@@ -35,6 +35,10 @@ namespace Asasingame.Core.Airplane.Runtimes
         private float lastEngineSpeed;
         private float currentEngineFireSpeed;
         private float currentMotionBlurValue;
+        private float targetEngineEmisValue;
+        private float currentEngineEmisValue;
+        private float targetEngineFireFXStrength;
+        private float currentEngineFireFXStrength;
 
         private bool planeIsDead;
 
@@ -168,6 +172,22 @@ namespace Asasingame.Core.Airplane.Runtimes
         [SerializeField] private float motionBlurModifySpeed;
         [SerializeField] private Volume motionBlurVolume;
 
+        [Header("Engine Emission")]
+        [SerializeField] private float engineEmission_DefaultInsensity;
+        [SerializeField] private float engineEmission_TurboInsensity;
+        [SerializeField] private float engineEmission_ModifySpeed;
+        [SerializeField] private Gradient engineEmission_Gradient;
+        [SerializeField] private Renderer model_Renderer;
+
+        [Header("Engine Fire Shader FX")]
+        [SerializeField] private float engineFireShaderFX_DefaultStrength;
+        [SerializeField] private float engineFireShaderFX_TurboStrength;
+        [SerializeField] private float engineFireShaderFX_ModifySpeed;
+        [SerializeField] private Renderer[] engineFireShaderFX_Renderers;
+
+        private MaterialPropertyBlock engineEmisMaterialBlock;
+        private MaterialPropertyBlock engineFireMaterialBlock;
+
         private void Start()
         {
             //Setup speeds
@@ -187,6 +207,9 @@ namespace Asasingame.Core.Airplane.Runtimes
             {
                 motionBlur.intensity.value = motionBlurDefaultValue;
             }
+
+            engineEmisMaterialBlock = new MaterialPropertyBlock();
+            engineFireMaterialBlock = new MaterialPropertyBlock();
         }
 
         private void Update()
@@ -216,7 +239,10 @@ namespace Asasingame.Core.Airplane.Runtimes
         {
             UpdatePropellersAndLights();
             UpdateEngineLaunchFireFX();
+            UpdateEngineEmission();
+            UpdateEngineFireShaderFX();
             UpdateMotionBlur();
+
 
             //Airplane move only if not dead
             if (!planeIsDead)
@@ -354,6 +380,12 @@ namespace Asasingame.Core.Airplane.Runtimes
 
                 //Motion Blur
                 currentMotionBlurValue = motionBlurTurboValue;
+
+                //Engine Emis
+                targetEngineEmisValue = 1;
+
+                //Engine Fire Shader FX
+                targetEngineFireFXStrength = engineFireShaderFX_TurboStrength;
             }
             else
             {
@@ -397,6 +429,12 @@ namespace Asasingame.Core.Airplane.Runtimes
 
                 //Motion Blur
                 currentMotionBlurValue = motionBlurDefaultValue;
+
+                //Engine Emis
+                targetEngineEmisValue = 0;
+
+                //Engine Fire Shader FX
+                targetEngineFireFXStrength = engineFireShaderFX_DefaultStrength;
             }
         }
 
@@ -558,6 +596,47 @@ namespace Asasingame.Core.Airplane.Runtimes
                 if (motionBlur)
                 {
                     motionBlur.intensity.value = math.lerp(motionBlur.intensity.value, 0, motionBlurModifySpeed * Time.deltaTime);
+                }
+            }
+        }
+
+        private void UpdateEngineEmission()
+        {
+            if (!planeIsDead)
+            {
+                currentEngineEmisValue = math.lerp(currentEngineEmisValue, targetEngineEmisValue, engineEmission_ModifySpeed * Time.deltaTime);
+                model_Renderer.GetPropertyBlock(engineEmisMaterialBlock);
+                engineEmisMaterialBlock.SetColor("_EmissionColor", engineEmission_Gradient.Evaluate(currentEngineEmisValue)*engineEmission_TurboInsensity);
+                model_Renderer.SetPropertyBlock(engineEmisMaterialBlock,1);
+            }
+            else
+            {
+                model_Renderer.GetPropertyBlock(engineEmisMaterialBlock);
+                engineEmisMaterialBlock.SetColor("_EmissionColor", Color.black);
+                model_Renderer.SetPropertyBlock(engineEmisMaterialBlock, 1);
+            }
+        }
+
+        private void UpdateEngineFireShaderFX()
+        {
+            if (!planeIsDead)
+            {
+                foreach(var renderer in engineFireShaderFX_Renderers)
+                {
+                    currentEngineFireFXStrength = math.lerp(currentEngineFireFXStrength, targetEngineFireFXStrength, engineFireShaderFX_ModifySpeed * Time.deltaTime);
+                    renderer.GetPropertyBlock(engineFireMaterialBlock);
+                    engineFireMaterialBlock.SetFloat("_AlphaStrength", currentEngineFireFXStrength);
+                    renderer.SetPropertyBlock(engineFireMaterialBlock);
+                }
+            }
+            else
+            {
+                foreach (var renderer in engineFireShaderFX_Renderers)
+                {
+                    currentEngineFireFXStrength = math.lerp(currentEngineFireFXStrength, targetEngineFireFXStrength, engineFireShaderFX_ModifySpeed * Time.deltaTime);
+                    renderer.GetPropertyBlock(engineFireMaterialBlock);
+                    engineFireMaterialBlock.SetFloat("_AlphaStrength", 0);
+                    renderer.SetPropertyBlock(engineFireMaterialBlock);
                 }
             }
         }
