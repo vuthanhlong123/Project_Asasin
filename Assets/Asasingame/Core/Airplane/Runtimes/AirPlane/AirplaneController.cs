@@ -185,6 +185,10 @@ namespace Asasingame.Core.Airplane.Runtimes
         [SerializeField] private float engineFireShaderFX_ModifySpeed;
         [SerializeField] private Renderer[] engineFireShaderFX_Renderers;
 
+        [Header("High Speed Smooke")]
+        [SerializeField] private float highSpeedSmooke_StartAtSpeed;
+        [SerializeField] private ParticleSystem[] highSpeedSmooke_Particles;
+
         private MaterialPropertyBlock engineEmisMaterialBlock;
         private MaterialPropertyBlock engineFireMaterialBlock;
 
@@ -210,6 +214,11 @@ namespace Asasingame.Core.Airplane.Runtimes
 
             engineEmisMaterialBlock = new MaterialPropertyBlock();
             engineFireMaterialBlock = new MaterialPropertyBlock();
+
+            foreach (var particle in highSpeedSmooke_Particles)
+            {
+                particle.Stop();
+            }
         }
 
         private void Update()
@@ -241,6 +250,7 @@ namespace Asasingame.Core.Airplane.Runtimes
             UpdateEngineLaunchFireFX();
             UpdateEngineEmission();
             UpdateEngineFireShaderFX();
+            UpdateHighSpeedSmooke();
             UpdateMotionBlur();
 
 
@@ -503,7 +513,10 @@ namespace Asasingame.Core.Airplane.Runtimes
 
             if (airplaneState == AirplaneState.Flying)
             {
-                engineSoundSource.pitch = Mathf.Lerp(engineSoundSource.pitch, currentEngineSoundPitch, 10f * Time.deltaTime);
+                //engineSoundSource.pitch = Mathf.Lerp(engineSoundSource.pitch, currentEngineSoundPitch, 10f * Time.deltaTime);
+                float t = (currentSpeed - defaultSpeed) / (turboSpeed - defaultSpeed);
+
+                engineSoundSource.pitch = Mathf.Lerp(defaultSoundPitch, turboSoundPitch, t);
 
                 if (planeIsDead)
                 {
@@ -637,6 +650,43 @@ namespace Asasingame.Core.Airplane.Runtimes
                     renderer.GetPropertyBlock(engineFireMaterialBlock);
                     engineFireMaterialBlock.SetFloat("_AlphaStrength", 0);
                     renderer.SetPropertyBlock(engineFireMaterialBlock);
+                }
+            }
+        }
+
+        private void UpdateHighSpeedSmooke()
+        {
+            if (!planeIsDead)
+            {
+                if(currentSpeed >= highSpeedSmooke_StartAtSpeed)
+                {
+                    foreach (ParticleSystem particle in highSpeedSmooke_Particles)
+                    {
+                        if (!particle.isPlaying)
+                        {
+                            particle.Play();
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (ParticleSystem particle in highSpeedSmooke_Particles)
+                    {
+                        if (particle.isPlaying)
+                        {
+                            particle.Stop();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (ParticleSystem particle in highSpeedSmooke_Particles)
+                {
+                    if (particle.isPlaying)
+                    {
+                        particle.Stop();
+                    }
                 }
             }
         }
@@ -839,9 +889,9 @@ namespace Asasingame.Core.Airplane.Runtimes
             inputV = moveInputSmooth.y;
 
             //Yaw axis inputs
-            inputYawLeft = Input.GetKey(KeyCode.Q);
+          /*  inputYawLeft = Input.GetKey(KeyCode.Q);
             inputYawRight = Input.GetKey(KeyCode.E);
-
+*/
             //Turbo
             inputTurbo = playerInput.actions["MoveFast"].ReadValue<float>() == 1 ? true : false;
         }
