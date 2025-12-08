@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Camera system Blends
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineBlenderSettings
   m_CustomBlends:
-  - m_From: Camera settings
+  - m_From: FreeLook Camera
     m_To: Virtual Camera
     m_Blend:
       m_Style: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
         m_PostInfinity: 0
         m_RotationOrder: 0
   - m_From: Virtual Camera
-    m_To: Camera settings
+    m_To: FreeLook Camera
     m_Blend:
       m_Style: 1
       m_Time: 1
