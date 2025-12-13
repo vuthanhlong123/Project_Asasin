@@ -85,7 +85,7 @@ namespace Asasingame.Core.Airplane.Runtimes
         [Range(5f, 100f)]
         [SerializeField] private float defaultSpeed = 10f;
 
-        [Range(10f, 200f)]
+        [Range(10f, 500f)]
         [SerializeField] private float turboSpeed = 20f;
 
         [Range(0.1f, 50f)]

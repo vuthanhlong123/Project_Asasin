@@ -17,6 +17,10 @@ namespace Asasingame.Core.Airplane.Runtimes
         [Header("Input")]
         [SerializeField] private PlayerInput playerInput;
 
+        [Header("Sound")]
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioClip audioClip;
+
         private bool isFire = false;
         private bool isCooldowned = false;
         private Transform cameraTrans;
@@ -47,6 +51,9 @@ namespace Asasingame.Core.Airplane.Runtimes
         {
             if (isFire && isCooldowned)
             {
+                if(audioSource && audioClip)
+                    audioSource.PlayOneShot(audioClip);
+
                 CreateProjectile();
 
                 isCooldowned = false;
