@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace Asasingame.Core.Airplane.Runtimes
 {
-    public class AirplaneGun : MonoBehaviour
+    public class AirplaneGun : AirplaneWeaponUnit
     {
         [SerializeField] private float fireRate;
 
@@ -25,16 +25,14 @@ namespace Asasingame.Core.Airplane.Runtimes
         private bool isCooldowned = false;
         private Transform cameraTrans;
 
+        protected override void Awake()
+        {
+            isReady = true;
+        }
+
         private void Start()
         {
             cameraTrans = Camera.main.transform;
-        }
-
-        private void OnEnable()
-        {
-            playerInput.actions["Fire"].started += AirplaneGun_started;
-            playerInput.actions["Fire"].canceled += AirplaneGun_canceled;
-            isCooldowned = true;
         }
 
         private void AirplaneGun_started(InputAction.CallbackContext obj)
@@ -79,6 +77,13 @@ namespace Asasingame.Core.Airplane.Runtimes
 
         private void CoolDownAvailable()
         {
+            isCooldowned = true;
+        }
+
+        private void OnEnable()
+        {
+            playerInput.actions["Fire"].started += AirplaneGun_started;
+            playerInput.actions["Fire"].canceled += AirplaneGun_canceled;
             isCooldowned = true;
         }
 
