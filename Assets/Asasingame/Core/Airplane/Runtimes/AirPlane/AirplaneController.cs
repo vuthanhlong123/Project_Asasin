@@ -187,7 +187,9 @@ namespace Asasingame.Core.Airplane.Runtimes
 
         [Header("High Speed Smooke")]
         [SerializeField] private float highSpeedSmooke_StartAtSpeed;
+        [SerializeField] private float highSpeedSmooke_StartAtAngleInterval;
         [SerializeField] private ParticleSystem[] highSpeedSmooke_Particles;
+        private Vector3 lastDirection;
 
         private MaterialPropertyBlock engineEmisMaterialBlock;
         private MaterialPropertyBlock engineFireMaterialBlock;
@@ -658,7 +660,7 @@ namespace Asasingame.Core.Airplane.Runtimes
         {
             if (!planeIsDead)
             {
-                if(currentSpeed >= highSpeedSmooke_StartAtSpeed)
+                if(currentSpeed >= highSpeedSmooke_StartAtSpeed && Vector3.SignedAngle(lastDirection, transform.forward, transform.right) <-highSpeedSmooke_StartAtAngleInterval)
                 {
                     foreach (ParticleSystem particle in highSpeedSmooke_Particles)
                     {
@@ -689,6 +691,8 @@ namespace Asasingame.Core.Airplane.Runtimes
                     }
                 }
             }
+
+            lastDirection = transform.forward;
         }
 
         private void SetupColliders(Transform _root)

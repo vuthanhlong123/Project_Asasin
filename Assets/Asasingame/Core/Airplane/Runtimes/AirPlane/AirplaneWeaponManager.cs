@@ -15,6 +15,7 @@ namespace Asasingame.Core.Airplane.Runtimes
 
         [Header("References")]
         [SerializeField] private AirplaneController airplaneController;
+        [SerializeField] private AirplaneCamera airplaneCamera;
 
         [Header("Input")]
         [SerializeField] private PlayerInput playerInput;
@@ -27,6 +28,7 @@ namespace Asasingame.Core.Airplane.Runtimes
 
         public PlayerInput PlayerInput => playerInput;
         public AirplaneController AirplaneController => airplaneController;
+        public AirplaneCamera AirplaneCamera => airplaneCamera;
 
         private void Start()
         {

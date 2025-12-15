@@ -10,7 +10,9 @@ namespace Asasingame.Core.Airplane.Runtimes
         [SerializeField] private float launchDelay;
         [SerializeField] private float acceleration;
         [SerializeField] private float gravity;
-        [SerializeField] private ParticleSystem[] particleSystems; 
+        [SerializeField] private ParticleSystem[] particleSystems;
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioClip launchSound;
 
         private float currentSpeed;
         private bool isSpeedUp;
@@ -30,7 +32,6 @@ namespace Asasingame.Core.Airplane.Runtimes
             if (!isSpeedUp)
             {
                 _rigi.linearVelocity = ((direction * currentSpeed) + (-transform.up * gravity));
-                _rigi.MoveRotation(Quaternion.LookRotation(direction, Vector3.up));
             }
             else
             {
@@ -65,9 +66,9 @@ namespace Asasingame.Core.Airplane.Runtimes
 
         public void Launch()
         {
-            Quaternion rot = transform.rotation;
-            transform.SetParent(null, true);
-            transform.rotation = rot;
+            Quaternion worldRot = transform.rotation;
+            transform.parent = null;
+            transform.rotation = worldRot;
 
             _rigi = GetComponent<Rigidbody>();
             _rigi.isKinematic = false;
@@ -76,6 +77,7 @@ namespace Asasingame.Core.Airplane.Runtimes
             Invoke(nameof(SetSpeedUp), launchDelay);
 
             isSpeedUp = false;
+            audioSource.PlayOneShot(launchSound);
 
             this.enabled = true;
         }
@@ -84,6 +86,7 @@ namespace Asasingame.Core.Airplane.Runtimes
         {
             isSpeedUp = true;
             EnableLaunchFX();
+            audioSource.Play();
         }
 
         private void EnableLaunchFX()

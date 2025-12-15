@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6028864803446533365}
   - component: {fileID: 4726551635195340743}
   - component: {fileID: 8743513003934128027}
+  - component: {fileID: 345979865918292850}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -107,13 +108,121 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Asasingame.Core.Airplane.Runtimes.Rocket
   lifeTime: 15
-  maxSpeed: 300
+  maxSpeed: 600
   launchDelay: 0.2
   acceleration: 100
   gravity: 9.8
   particleSystems:
   - {fileID: 417465659492535460}
   - {fileID: 6734754977947521783}
+  audioSource: {fileID: 345979865918292850}
+  launchSound: {fileID: 8300000, guid: d9230ca064c241d4c9d955646672dc4d, type: 3}
+--- !u!82 &345979865918292850
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278748019109737228}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 7823b83fa38d3db4f84c6d61fddfa805, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -11.312398
+      outSlope: -11.312398
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.17426302
+    - serializedVersion: 3
+      time: 0.12145975
+      value: 0.34672153
+      inSlope: -1.4499906
+      outSlope: -1.4499906
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.08800691
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &910849531184041005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -340,17 +449,17 @@ PrefabInstance:
     - target: {fileID: 1067625319099386148, guid: 21128c009c6a1b5408a9c4c94a1a0e4d,
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
-      value: 2.1195436
+      value: 1.0361433
       objectReference: {fileID: 0}
     - target: {fileID: 1067625319099386148, guid: 21128c009c6a1b5408a9c4c94a1a0e4d,
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inWeight
-      value: 0.046228535
+      value: 0.06418237
       objectReference: {fileID: 0}
     - target: {fileID: 1067625319099386148, guid: 21128c009c6a1b5408a9c4c94a1a0e4d,
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
-      value: 2.1195436
+      value: 1.0361433
       objectReference: {fileID: 0}
     - target: {fileID: 2840204811182878942, guid: 21128c009c6a1b5408a9c4c94a1a0e4d,
         type: 3}

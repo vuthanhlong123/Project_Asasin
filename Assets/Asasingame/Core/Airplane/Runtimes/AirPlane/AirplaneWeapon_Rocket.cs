@@ -12,11 +12,17 @@ namespace Asasingame.Core.Airplane.Runtimes
         [SerializeField] private float cooldown;
 
         private Rocket currentRocketInstance;
+        private Transform camereTrans;
 
         protected override void Awake()
         {
             isReady = true;
             CreateRocket();
+        }
+
+        private void Start()
+        {
+            camereTrans = Camera.main.transform;
         }
 
         public override void Active()
@@ -37,8 +43,18 @@ namespace Asasingame.Core.Airplane.Runtimes
         {
             if (currentRocketInstance == null) return;
 
+            Vector3 direction = Vector3.zero;
+            if (manager.AirplaneCamera.IsAimming)
+            {
+                direction = ((camereTrans.position+ camereTrans.forward * 1000) - transform.position).normalized; 
+            }
+            else
+            {
+                direction = manager.AirplaneController.transform.forward;
+            }
+
             float airplaneSpeed = manager.AirplaneController.CurrentSpeed();
-            currentRocketInstance.SetValue(transform.forward, airplaneSpeed);
+            currentRocketInstance.SetValue(direction, airplaneSpeed);
             currentRocketInstance.Launch();
             currentRocketInstance = null;
 

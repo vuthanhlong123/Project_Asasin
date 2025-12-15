@@ -5,6 +5,8 @@ namespace Asasingame.Core.Airplane.Runtimes
     public class JetFlare : MonoBehaviour
     {
         [SerializeField] private float resistance;
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioClip launchClip;
 
         private float speed;
         private float remainingSpeed;
@@ -13,6 +15,8 @@ namespace Asasingame.Core.Airplane.Runtimes
         private void Start()
         {
             remainingSpeed = speed;
+            audioSource.PlayOneShot(launchClip);
+           // audioSource.Play();
         }
 
         private void Update()
