@@ -21,6 +21,10 @@ namespace Asasingame.Core.Airplane.Runtimes.UIs
         [SerializeField] private Vector2 altitudeCountFrame_SlideRange;
         [SerializeField] private float maxAltitude;
 
+        [Header("Compass")]
+        [SerializeField] private Material material;
+        [SerializeField] private float defaultScrollValue;
+
         private Camera cam;
         private AirplaneController airplaneController;
 
@@ -35,6 +39,7 @@ namespace Asasingame.Core.Airplane.Runtimes.UIs
             UpdateSpeedLadder();
             UpdateAltitude();
             UpdatePitchLadder();
+            UpdateCompass();
         }
         
         private void UpdatePitchLadder()
@@ -76,6 +81,14 @@ namespace Asasingame.Core.Airplane.Runtimes.UIs
             text_AltitudeCount.text = Mathf.Round(airplaneController.transform.position.y).ToString();
             rect_AltitudeCountFrame.anchoredPosition = new Vector2(0, Mathf.Lerp(altitudeCountFrame_SlideRange.x, altitudeCountFrame_SlideRange.y, airplaneController.transform.position.y/maxAltitude));
         }
+
+        private void UpdateCompass()
+        {
+            Debug.Log(transform.eulerAngles.y);
+            Debug.Log(transform.eulerAngles.y * ((float)1 / 360));
+            material.SetFloat("_Scroll", defaultScrollValue + transform.eulerAngles.y * ((float)1 /360));
+        }
+
     }
 }
 

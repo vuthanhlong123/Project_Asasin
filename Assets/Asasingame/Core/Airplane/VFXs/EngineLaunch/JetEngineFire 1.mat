@@ -65,7 +65,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _AlphaStrength: 1
+    - _AlphaStrength: 0.966
     - _AlphaToMask: 0
     - _Amplitude: 0.07
     - _Blend: 0
