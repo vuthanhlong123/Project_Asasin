@@ -5,6 +5,9 @@ namespace Asasingame.Core.Airplane.Runtimes.UIs
 {
     public class UI_HUD : MonoBehaviour
     {
+        [SerializeField] private AirplaneCamera cameraController;
+        [SerializeField] private GameObject container;
+
         [Header("Pitch Ladder")]
         [SerializeField] private RectTransform rect_ContentPitchLadder;
         [SerializeField] private RectTransform rect_PitchLadder;
@@ -84,9 +87,29 @@ namespace Asasingame.Core.Airplane.Runtimes.UIs
 
         private void UpdateCompass()
         {
-            Debug.Log(transform.eulerAngles.y);
-            Debug.Log(transform.eulerAngles.y * ((float)1 / 360));
             material.SetFloat("_Scroll", defaultScrollValue + transform.eulerAngles.y * ((float)1 /360));
+        }
+
+        private void OnEnable()
+        {
+            cameraController.EnableAimCamera += CameraController_EnableAimCamera;
+            cameraController.EnableFreeLookCamera += CameraController_EnableFreeLookCamera;
+        }
+
+        private void CameraController_EnableFreeLookCamera()
+        {
+            container.SetActive(false);
+        }
+
+        private void CameraController_EnableAimCamera()
+        {
+            container.SetActive(true);
+        }
+
+        private void OnDisable()
+        {
+            cameraController.EnableAimCamera -= CameraController_EnableAimCamera;
+            cameraController.EnableFreeLookCamera -= CameraController_EnableFreeLookCamera;
         }
 
     }

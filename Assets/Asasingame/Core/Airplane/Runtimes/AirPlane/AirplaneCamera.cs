@@ -2,6 +2,7 @@ using UnityEngine;
 using Cinemachine;
 using static Asasingame.Core.Airplane.Runtimes.AirplaneController;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 namespace Asasingame.Core.Airplane.Runtimes
 {
@@ -21,6 +22,13 @@ namespace Asasingame.Core.Airplane.Runtimes
 
         public bool IsAimming => aimCamera.gameObject.activeSelf;
 
+        public event UnityAction EnableFreeLookCamera;
+        public void OnEnableFreeLookCamera() => EnableFreeLookCamera?.Invoke();
+
+        public event UnityAction EnableAimCamera;
+        public void OnEnableAimCamera() => EnableAimCamera?.Invoke();
+
+
         private void OnEnable()
         {
             airPlaneController.crashAction += Crash;
@@ -29,7 +37,21 @@ namespace Asasingame.Core.Airplane.Runtimes
        
         private void AirplaneCamera_performed(InputAction.CallbackContext obj)
         {
+            ChangeAimCameraState();
+        }
+
+        private void ChangeAimCameraState()
+        {
             aimCamera.gameObject.SetActive(!aimCamera.gameObject.activeSelf);
+
+            if (aimCamera.gameObject.activeSelf)
+            {
+                OnEnableAimCamera();
+            }
+            else
+            {
+                OnEnableFreeLookCamera();
+            }
         }
 
         private void OnDisable()
@@ -45,6 +67,9 @@ namespace Asasingame.Core.Airplane.Runtimes
             //Lock and hide mouse
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+            aimCamera.gameObject.SetActive(false);
+            OnEnableFreeLookCamera();
         }
 
         private void Update()

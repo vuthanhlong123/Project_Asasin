@@ -893,9 +893,9 @@ namespace Asasingame.Core.Airplane.Runtimes
             inputV = moveInputSmooth.y;
 
             //Yaw axis inputs
-          /*  inputYawLeft = Input.GetKey(KeyCode.Q);
-            inputYawRight = Input.GetKey(KeyCode.E);
-*/
+           /* inputYawLeft = Input.GetKey(KeyCode.Q);
+            inputYawRight = Input.GetKey(KeyCode.E);*/
+
             //Turbo
             inputTurbo = playerInput.actions["MoveFast"].ReadValue<float>() == 1 ? true : false;
         }
