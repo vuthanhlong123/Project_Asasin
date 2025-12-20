@@ -375,7 +375,7 @@ namespace Asasingame.Core.Airplane.Runtimes
                 maxSpeed = turboSpeed;
 
                 currentYawSpeed = yawSpeed * yawTurboMultiplier;
-                currentPitchSpeed = pitchSpeed * pitchTurboMultiplier;
+                currentPitchSpeed = Mathf.Lerp(pitchSpeed, pitchSpeed * pitchTurboMultiplier, (currentSpeed - defaultSpeed)/(turboSpeed - defaultSpeed));
                 currentRollSpeed = rollSpeed * rollTurboMultiplier;
 
                 //Engine lights
@@ -424,7 +424,8 @@ namespace Asasingame.Core.Airplane.Runtimes
                 maxSpeed = defaultSpeed * speedMultiplier;
 
                 currentYawSpeed = yawSpeed;
-                currentPitchSpeed = pitchSpeed;
+                currentPitchSpeed = Mathf.Lerp(pitchSpeed, pitchSpeed * pitchTurboMultiplier, (currentSpeed - defaultSpeed) / (turboSpeed - defaultSpeed));
+                //currentPitchSpeed = pitchSpeed;
                 currentRollSpeed = rollSpeed;
 
                 //Engine lights

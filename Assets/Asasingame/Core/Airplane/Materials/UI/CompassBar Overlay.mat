@@ -43,7 +43,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Height: 0
-    - _Scroll: 0.82556105
+    - _Scroll: -0.04369179
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Offset: {r: -0.21, g: 0, b: 0, a: 0}

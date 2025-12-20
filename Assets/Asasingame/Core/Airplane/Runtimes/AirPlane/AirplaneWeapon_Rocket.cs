@@ -16,6 +16,7 @@ namespace Asasingame.Core.Airplane.Runtimes
 
         protected override void Awake()
         {
+            base.Awake();
             isReady = true;
             CreateRocket();
         }
@@ -37,11 +38,13 @@ namespace Asasingame.Core.Airplane.Runtimes
         {
             if(isReady == false) return;
             Fire();
+            manager.ChangeToOtherReadyWeaponUnit(ID);
         }
 
         private void Fire()
         {
-            if (currentRocketInstance == null) return;
+            if (currentRocketInstance == null || availableBullet <=0) return;
+            availableBullet--;
 
             Vector3 direction = Vector3.zero;
             if (manager.AirplaneCamera.IsAimming)
@@ -60,6 +63,8 @@ namespace Asasingame.Core.Airplane.Runtimes
 
             isReady = false;
             Invoke(nameof(OnCooldown), cooldown);
+
+            OnFireEvent();
         }
 
         public override void DeActive()
@@ -81,8 +86,10 @@ namespace Asasingame.Core.Airplane.Runtimes
 
         private void OnCooldown()
         {
+            availableBullet = data.BulletAmount;
             CreateRocket();
             SetReady();
+            OnReloadedEvent();
         }
     }
 }

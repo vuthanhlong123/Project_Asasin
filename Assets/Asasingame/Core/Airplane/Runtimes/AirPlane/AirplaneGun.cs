@@ -27,6 +27,8 @@ namespace Asasingame.Core.Airplane.Runtimes
 
         protected override void Awake()
         {
+            base.Awake();
+
             isReady = true;
         }
 
@@ -47,15 +49,23 @@ namespace Asasingame.Core.Airplane.Runtimes
 
         private void Update()
         {
+            if (availableBullet < 0 && data.BulletMode == Runtimes.Data.BulletMode.Limit) return;
+
             if (isFire && isCooldowned)
             {
                 if(audioSource && audioClip)
                     audioSource.PlayOneShot(audioClip);
 
                 CreateProjectile();
+                OnFireEvent();
 
                 isCooldowned = false;
                 Invoke(nameof(CoolDownAvailable), fireRate);
+
+                if(availableBullet <=0 && data.BulletMode == Runtimes.Data.BulletMode.Limit)
+                {
+                    isReady = false;
+                }
             }
         }
 
@@ -73,6 +83,9 @@ namespace Asasingame.Core.Airplane.Runtimes
                 Vector3 shootDirection = (targetPoint - transform.position).normalized;
                 GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.LookRotation(shootDirection, Vector3.up));
             }
+
+            if(data.BulletMode == Runtimes.Data.BulletMode.Limit)
+                availableBullet--;
         }
 
         private void CoolDownAvailable()
