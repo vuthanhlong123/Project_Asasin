@@ -1,3 +1,4 @@
+using Asasingame.Core.Airplane.Runtimes.UIs;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,6 +16,9 @@ namespace Asasingame.Core.Airplane.Runtimes
         [SerializeField] private Vector2 horizontalError;
         [SerializeField] private Vector2 VerticaleError;
 
+        [Header("UI")]
+        [SerializeField] private UIFlare uiFlare;
+
         private bool isAvailable;
         private bool isLaunching;
         private int lauchedAmount;
@@ -22,7 +26,7 @@ namespace Asasingame.Core.Airplane.Runtimes
         private void Start()
         {
             playerInput.actions["Flare"].performed += JetFlareController_performed;
-            isAvailable = true;
+            LaunchAvailable();
         }
 
         private void JetFlareController_performed(InputAction.CallbackContext obj)
@@ -35,6 +39,11 @@ namespace Asasingame.Core.Airplane.Runtimes
             isLaunching = true;
             lauchedAmount = 0;
             InvokeRepeating(nameof(LaunchFlare),0, launchInterval);
+
+            if(uiFlare)
+            {
+                uiFlare.SetUnAvailable();
+            }
         }
 
         private void LaunchFlare()
@@ -62,6 +71,10 @@ namespace Asasingame.Core.Airplane.Runtimes
         private void LaunchAvailable()
         {
             isAvailable = true;
+            if (uiFlare)
+            {
+                uiFlare.SetAvailable();
+            }
         }
     }
 }
