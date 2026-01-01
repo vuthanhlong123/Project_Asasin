@@ -18,6 +18,8 @@ EditorBuildSettings:
     path: Assets/Akila/FPS Framework Pro/Scenes/Multiplayer/Multiplayer Demo.unity
     guid: 32a9f4c89688abf4da268801954a5d46
   m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
+      type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: efba88191764dab45b0035a7f3e03db7,
       type: 3}
   m_UseUCBPForAssetBundles: 0
