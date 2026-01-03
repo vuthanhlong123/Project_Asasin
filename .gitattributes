@@ -1,1 +1,2 @@
 Assets/Game/Models/Map1/CoreMapExport.fbx filter=lfs diff=lfs merge=lfs -text
+Assets/Game/Models/Characters/MainMale/MainMale.fbx filter=lfs diff=lfs merge=lfs -text
