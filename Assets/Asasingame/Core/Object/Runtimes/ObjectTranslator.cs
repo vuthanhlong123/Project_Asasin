@@ -15,11 +15,14 @@ namespace Asasingame.Core.Object.Runtimes
 
         private void Start()
         {
-            startPoistion= transform.position;
             if (startDelayTime>0)
             {
                 this.enabled = false;
                 Invoke(nameof(Active), startDelayTime);
+            }
+            else
+            {
+                startPoistion = transform.position;
             }
         }
 
@@ -38,6 +41,7 @@ namespace Asasingame.Core.Object.Runtimes
 
         private void Active()
         {
+            startPoistion = transform.position;
             this.enabled = true;
         }
     }
