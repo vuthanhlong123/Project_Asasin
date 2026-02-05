@@ -49,14 +49,9 @@ MonoBehaviour:
   Name: Jump
   length: 0.15
   weight: 0.56
-  loop: 0
-  autoStop: 1
-  perModifierConnections: 1
-  playOnAwake: 0
-  resetOnPlayed: 0
-  isolate: 0
+  options: 36
   isolationMode: 0
-  updateMode: 0
+  isolationUpdateMode: 0
   triggerType: 0
   triggerInputAction:
     m_Name: Trigger Input
@@ -272,7 +267,6 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
-  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -280,6 +274,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1 &1281021895094020430
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +425,6 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
-  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -438,6 +432,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1 &1315046817432115858
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,16 +645,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29252569f227b5545ae14df0efed459b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
-  fieldOfInteractions: 0.5
-  interactableLayers:
+  interactionRange: 2
+  holdDuration: 0.2
+  interactionFieldAngle: 0.5
+  interactableMask:
     serializedVersion: 2
     m_Bits: 32768
-  HUDObject: {fileID: 1315046817432115858}
-  interactKeyText: {fileID: 1032070966581550605}
-  interactActionText: {fileID: 2831581881869390476}
-  defaultInteractAudio: {fileID: 11400000, guid: 71fa29c9153f9c94eb56a15d19b190c0,
+  interactionHUD: {fileID: 1315046817432115858}
+  interactKeyLabel: {fileID: 1032070966581550605}
+  interactActionLabel: {fileID: 2831581881869390476}
+  defaultInteractionAudio: {fileID: 11400000, guid: 71fa29c9153f9c94eb56a15d19b190c0,
     type: 2}
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2432691311583837640
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,14 +825,9 @@ MonoBehaviour:
   Name: Lean Left
   length: 0.15
   weight: 1
-  loop: 0
-  autoStop: 0
-  perModifierConnections: 1
-  playOnAwake: 0
-  resetOnPlayed: 0
-  isolate: 0
+  options: 36
   isolationMode: 0
-  updateMode: 0
+  isolationUpdateMode: 0
   triggerType: 2
   triggerInputAction:
     m_Name: Trigger Input
@@ -928,14 +922,9 @@ MonoBehaviour:
   Name: Breath
   length: 0.15
   weight: 0.7
-  loop: 1
-  autoStop: 0
-  perModifierConnections: 1
-  playOnAwake: 1
-  resetOnPlayed: 0
-  isolate: 0
+  options: 36
   isolationMode: 0
-  updateMode: 0
+  isolationUpdateMode: 0
   triggerType: 0
   triggerInputAction:
     m_Name: Trigger Input
@@ -1219,6 +1208,7 @@ MonoBehaviour:
   tacticalSprintSpeed: 11
   jumpHeight: 6
   crouchHeight: 1.5
+  crouchTime: 0.1
   stepInterval: 7
   autoDetectMovingPlatforms: 1
   preserveMomentum: 1
@@ -1228,6 +1218,7 @@ MonoBehaviour:
   gravity: 1
   maxFallSpeed: 100
   stickToGroundForce: 0.5
+  leaveGroundForce: 3
   cameraTransform: {fileID: 4881171474271531242}
   maximumX: 80
   minimumX: -80
@@ -1325,7 +1316,7 @@ MonoBehaviour:
   ragdolls: 0
   deathEffect: {fileID: 0}
   autoHeal: 1
-  autoHealSpeed: 1
+  regenerationRate: 1
   autoHealDelay: 5
   onDeath:
     m_PersistentCalls:
@@ -1342,6 +1333,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onTryToHeal:
+    m_PersistentCalls:
+      m_Calls: []
   onRespawn:
     m_PersistentCalls:
       m_Calls: []
@@ -1447,14 +1441,9 @@ MonoBehaviour:
   Name: Land
   length: 0.15
   weight: 0.155
-  loop: 0
-  autoStop: 1
-  perModifierConnections: 1
-  playOnAwake: 0
-  resetOnPlayed: 0
-  isolate: 0
+  options: 36
   isolationMode: 0
-  updateMode: 0
+  isolationUpdateMode: 0
   triggerType: 0
   triggerInputAction:
     m_Name: Trigger Input
@@ -1598,14 +1587,9 @@ MonoBehaviour:
   Name: Lean Right
   length: 0.15
   weight: 1
-  loop: 0
-  autoStop: 0
-  perModifierConnections: 1
-  playOnAwake: 0
-  resetOnPlayed: 0
-  isolate: 0
+  options: 36
   isolationMode: 0
-  updateMode: 0
+  isolationUpdateMode: 0
   triggerType: 2
   triggerInputAction:
     m_Name: Trigger Input
@@ -2447,14 +2431,9 @@ MonoBehaviour:
   Name: Camera Kick
   length: 0.15
   weight: 1
-  loop: 0
-  autoStop: 0
-  perModifierConnections: 1
-  playOnAwake: 0
-  resetOnPlayed: 0
-  isolate: 0
+  options: 36
   isolationMode: 0
-  updateMode: 0
+  isolationUpdateMode: 0
   triggerType: 0
   triggerInputAction:
     m_Name: Trigger Input
@@ -2597,14 +2576,9 @@ MonoBehaviour:
   Name: Holding Breath
   length: 0.15
   weight: 0.7
-  loop: 0
-  autoStop: 0
-  perModifierConnections: 1
-  playOnAwake: 1
-  resetOnPlayed: 0
-  isolate: 0
+  options: 36
   isolationMode: 0
-  updateMode: 0
+  isolationUpdateMode: 0
   triggerType: 2
   triggerInputAction:
     m_Name: Trigger Input
