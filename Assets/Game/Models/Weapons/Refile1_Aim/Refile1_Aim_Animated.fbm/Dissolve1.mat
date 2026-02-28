@@ -84,7 +84,7 @@ Material:
     - _BlendModePreserveSpecular: 0
     - _CastShadows: 1
     - _Cull: 2
-    - _DissolveAmount: 0.99831825
+    - _DissolveAmount: 0.9924575
     - _DissovleAmount: 0.259
     - _DstBlend: 0
     - _DstBlendAlpha: 0
@@ -106,9 +106,9 @@ Material:
     - _posY: 0
     m_Colors:
     - _Bound: {r: -0.33, g: 0.67, b: 0, a: 0}
-    - _Direction: {r: -0.079914615, g: -0.00337268, b: 0.996796, a: 0}
+    - _Direction: {r: 0.87974536, g: -0.081268966, b: 0.46844777, a: 0}
     - _EdgeColor: {r: 0, g: 8.47419, b: 0.4898369, a: 1}
     - _EmissionColor: {r: 23.96863, g: 23.96863, b: 23.96863, a: 1}
-    - _Pivot: {r: 10.670661, g: 1.5247787, b: 3.219, a: 0}
+    - _Pivot: {r: 9.511081, g: 1.5058931, b: 4.6367397, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

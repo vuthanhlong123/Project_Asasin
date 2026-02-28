@@ -3863,7 +3863,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 234047ede928d814a9cf7a67feac59dd, type: 2}
+      objectReference: {fileID: 2100000, guid: ee591d0b3afc4434ebddfcf36e009be7, type: 2}
     - target: {fileID: -4128383740851021839, guid: 352bd48ab801c894aa3adc78863bdd26,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4158,7 +4158,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 234047ede928d814a9cf7a67feac59dd, type: 2}
+      objectReference: {fileID: 2100000, guid: 82e9441c85dcf2e4ab34cca9b5edb582, type: 2}
     - target: {fileID: 309746797668991619, guid: 352bd48ab801c894aa3adc78863bdd26,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4353,7 +4353,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 234047ede928d814a9cf7a67feac59dd, type: 2}
+      objectReference: {fileID: 2100000, guid: 8addb57f5d6cdaa4ea79f387c3d5f772, type: 2}
     - target: {fileID: 4151906924072251157, guid: 352bd48ab801c894aa3adc78863bdd26,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4683,6 +4683,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3400102427031297196}
+    - targetCorrespondingSourceObject: {fileID: -779901530074751608, guid: 352bd48ab801c894aa3adc78863bdd26,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2901059536377261583}
     - targetCorrespondingSourceObject: {fileID: -6376487300653170247, guid: 352bd48ab801c894aa3adc78863bdd26,
         type: 3}
       insertIndex: -1
@@ -4698,6 +4702,56 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5319996497071313297}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4393638639358069785 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -779901530074751608, guid: 352bd48ab801c894aa3adc78863bdd26,
+    type: 3}
+  m_PrefabInstance: {fileID: 5319996497071313297}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2901059536377261583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4393638639358069785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5b3b8d094ebff47817593153edda72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Asasingame.Common.ShaderGraphs.UpdatePropertyFloatOneShot
+  timeScale: 2
+  stacks:
+  - mat: {fileID: 2100000, guid: 82e9441c85dcf2e4ab34cca9b5edb582, type: 2}
+    propertyName: _DissolveAmount
+    range: {x: 1, y: 1}
+    delay: 0
+    duration: 0.1
+  - mat: {fileID: 2100000, guid: 82e9441c85dcf2e4ab34cca9b5edb582, type: 2}
+    propertyName: _DissolveAmount
+    range: {x: 1, y: 0}
+    delay: 0
+    duration: 3
+  - mat: {fileID: 2100000, guid: ee591d0b3afc4434ebddfcf36e009be7, type: 2}
+    propertyName: _DissolveAmount
+    range: {x: 1, y: 1}
+    delay: 0
+    duration: 0.1
+  - mat: {fileID: 2100000, guid: ee591d0b3afc4434ebddfcf36e009be7, type: 2}
+    propertyName: _DissolveAmount
+    range: {x: 1, y: 0}
+    delay: 1.15
+    duration: 0.48
+  - mat: {fileID: 2100000, guid: 8addb57f5d6cdaa4ea79f387c3d5f772, type: 2}
+    propertyName: _DissolveAmount
+    range: {x: 1, y: 1}
+    delay: 0
+    duration: 0.1
+  - mat: {fileID: 2100000, guid: 8addb57f5d6cdaa4ea79f387c3d5f772, type: 2}
+    propertyName: _DissolveAmount
+    range: {x: 1, y: 0}
+    delay: 1.25
+    duration: 0.35
 --- !u!1 &4977890947129879744 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 352bd48ab801c894aa3adc78863bdd26,
@@ -4768,7 +4822,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7950619386413666344}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bbe36b3a5579274f8942483fd406f50, type: 3}
   m_Name: 
@@ -4789,11 +4843,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7950619386413666344}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb5b3b8d094ebff47817593153edda72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Asasingame.Common.ShaderGraphs.UpdatePropertyFloatOneShot
+  timeScale: 1
   stacks:
   - mat: {fileID: 2100000, guid: 234047ede928d814a9cf7a67feac59dd, type: 2}
     propertyName: _DissolveAmount
