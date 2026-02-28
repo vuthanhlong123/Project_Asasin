@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dac09b79c461044488dedb2369855aa1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 360722
+  packageName: Big Star Station
+  packageVersion: 1.0
+  assetPath: Assets/Akairo/Big Star Station/HDRP/Art/Animations/Dynamic Camera 8.controller
+  uploadId: 860744
