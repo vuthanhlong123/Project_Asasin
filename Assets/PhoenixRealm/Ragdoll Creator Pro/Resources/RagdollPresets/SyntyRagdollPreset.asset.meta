@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 68068c8918f2eed479f3a2c377b3dece
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342842
+  packageName: Ragdoll Creator Pro
+  packageVersion: 1.2.0
+  assetPath: Assets/PhoenixRealm/Ragdoll Creator Pro/Resources/RagdollPresets/SyntyRagdollPreset.asset
+  uploadId: 822240

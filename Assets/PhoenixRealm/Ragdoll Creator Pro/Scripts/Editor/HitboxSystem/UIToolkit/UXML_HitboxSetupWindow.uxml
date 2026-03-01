@@ -1,0 +1,59 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements"
+         xsi="http://www.w3.org/2001/XMLSchema-instance"
+         engine="UnityEngine.UIElements" editor="UnityEditor.UIElements"
+         noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
+         editor-extension-mode="True">
+    
+    <Style src="project://database/Assets/PhoenixRealm/Ragdoll Creator Pro/Scripts/Editor/HitboxSystem/UIToolkit/USS_HitboxSetupWindow.uss" />
+    
+    <ui:VisualElement name="root" class="root">
+        
+        <!-- Header -->
+        <ui:VisualElement name="header" class="header">
+            <ui:Label text="Hitbox Setup" class="header__title" />
+            <ui:HelpBox name="help-box" text="Copy collider settings from a RagdollMap to create hitboxes on a character. Bones are matched by name." message-type="Info" />
+        </ui:VisualElement>
+        
+        <!-- Main Content -->
+        <ui:ScrollView name="main-scroll" class="main-scroll">
+            
+            <!-- Configuration Section -->
+            <ui:VisualElement name="config-section" class="section">
+                <ui:VisualElement class="section__header">
+                    <ui:Label text="Configuration" class="section__title" />
+                </ui:VisualElement>
+                <ui:VisualElement class="section__content">
+                    
+                    <uie:ObjectField name="ragdoll-map-field" label="Source RagdollMap" class="field-row" />
+                    <uie:ObjectField name="target-character-field" label="Target Character" class="field-row" />
+                    <uie:ObjectField name="hitbox-prefab-field" label="Hitbox Prefab (Optional)" class="field-row" />
+                    
+                    <ui:VisualElement class="field-row">
+                        <ui:Toggle name="is-trigger-toggle" label="Is Trigger" value="true" />
+                    </ui:VisualElement>
+                    
+                    <ui:VisualElement class="field-row">
+                        <ui:Toggle name="show-preview-toggle" label="Show Preview in Scene" value="false" />
+                    </ui:VisualElement>
+                    
+                </ui:VisualElement>
+            </ui:VisualElement>
+            
+            <!-- Preview Section -->
+            <ui:ScrollView name="preview-scroll" class="section preview-section">
+                <ui:VisualElement class="section__header">
+                    <ui:Label text="Preview" class="section__title" />
+                    <ui:Label name="stats-label" text="Total: 0  |  ✓ Matched: 0  |  ✗ Not Found: 0" class="stats-label" />
+                </ui:VisualElement>
+                <ui:VisualElement name="preview-list" class="preview-list" />
+            </ui:ScrollView>
+            
+        </ui:ScrollView>
+        
+        <!-- Footer Actions -->
+        <ui:VisualElement name="footer" class="footer">
+            <ui:Button name="apply-button" text="Apply Hitboxes" class="btn btn--primary btn--large" />
+        </ui:VisualElement>
+        
+    </ui:VisualElement>
+</ui:UXML>

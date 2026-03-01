@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ecf7231e95f2047458749a9f310df264
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 12385, guid: 0000000000000000e000000000000000, type: 0}
+  disableValidation: 0
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342842
+  packageName: Ragdoll Creator Pro
+  packageVersion: 1.2.0
+  assetPath: Assets/PhoenixRealm/Ragdoll Creator Pro/Scripts/Editor/HitboxSystem/UIToolkit/USS_HitboxSetupWindow.uss
+  uploadId: 822240

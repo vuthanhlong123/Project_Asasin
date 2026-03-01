@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d7405c78141e96942961cd9fe70068e7
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342842
+  packageName: Ragdoll Creator Pro
+  packageVersion: 1.2.0
+  assetPath: Assets/PhoenixRealm/Ragdoll Creator Pro/Scripts/Editor/PhoenixRealm.RagdollCreatorPro.Editor.asmdef
+  uploadId: 822240

@@ -1,0 +1,156 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="overlay-root" class="overlay-root">
+        
+        <!-- Header -->
+        <ui:VisualElement name="overlay-header" class="overlay__header">
+            <ui:Label name="overlay-title" class="overlay__title" text="Node Inspector" />
+            <ui:VisualElement name="overlay-header-controls" class="overlay__header-controls">
+                <ui:Button name="xray-toggle" class="overlay__xray-btn btn--secondary" text="X-Ray" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- Tab Container -->
+        <ui:VisualElement name="tab-container" class="overlay__tab-container">
+            <ui:Button name="collider-tab" class="tab-btn tab-btn--active" text="Collider" />
+            <ui:Button name="joint-tab" class="tab-btn" text="Joint" />
+            <ui:Button name="mass-tab" text="Mass" class="tab-btn" />
+            <ui:Button name="fit-tab" class="tab-btn" text="Fit" />
+        </ui:VisualElement>
+
+        <!-- Tool Container -->
+        <ui:VisualElement name="tool-container" class="overlay__tool-container">
+            <ui:Label name="tool-label" class="tool-label" text="Tool:" />
+            <ui:VisualElement name="tool-buttons" class="tool-buttons">
+                <!-- Tool buttons will be dynamically created -->
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- Content Area -->
+        <ui:ScrollView name="content-scroll" class="overlay__content-scroll">
+            <ui:VisualElement name="content-container" class="overlay__content">
+                
+                <!-- Collider Panel - Initially active -->
+                <ui:VisualElement name="collider-panel" class="panel panel--active">
+                    <ui:VisualElement name="collider-section" class="section">
+                        <ui:Label name="collider-header" class="section__header" text="Collider Properties" />
+                        <ui:VisualElement name="collider-content" class="section__content">
+                            <uie:Vector3Field name="local-offset-field" label="Local Offset" class="field" />
+                            <uie:EnumField name="collider-type-field" label="Type" class="field" />
+                            
+                            <!-- Sphere Parameters -->
+                            <uie:FloatField name="sphere-radius-field" label="Radius" class="field collider-param sphere-param" />
+                            
+                            <!-- Capsule Parameters -->
+                            <uie:FloatField name="capsule-radius-field" label="Radius" class="field collider-param capsule-param" />
+                            <uie:FloatField name="capsule-height-field" label="Height (straight)" class="field collider-param capsule-param" />
+                            <uie:EnumField name="capsule-direction-field" label="Direction" class="field collider-param capsule-param" />
+                            <ui:Label name="capsule-total-height-label" class="help-text collider-param capsule-param" text="Total Height: 2.000" />
+                            
+                            <!-- Box Parameters -->
+                            <uie:Vector3Field name="box-size-field" label="Size" class="field collider-param box-param" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
+                <!-- Joint Panel - Initially hidden -->
+                <ui:VisualElement name="joint-panel" class="panel">
+                    <ui:VisualElement name="joint-section" class="section">
+                        <ui:Label name="joint-header" class="section__header" text="Joint Properties" />
+                        <ui:VisualElement name="joint-content" class="section__content">
+                            <uie:Vector3Field name="anchor-field" label="Anchor" class="field" />
+                            <ui:Foldout name="advanced-axis-foldout" class="foldout" text="Advanced Axis">
+                                <uie:Vector3Field name="axis-vector-field" label="Axis Vector" class="field" />
+                            </ui:Foldout>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    
+                    <ui:VisualElement name="limits-section" class="section">
+                        <ui:Label name="limits-header" class="section__header" text="Joint Limits" />
+                        <ui:VisualElement name="limits-content" class="section__content">
+                            
+                            <!-- Low Twist Limit -->
+                            <ui:VisualElement name="low-twist-row" class="limit-slider-row">
+                                <ui:Label name="low-twist-label" class="limit-slider-label" text="Low Twist" />
+                                <ui:Slider name="low-twist-slider" class="limit-slider" low-value="-180" high-value="0" />
+                                <uie:FloatField name="low-twist-field" class="limit-value-field" />
+                                <ui:Label class="limit-unit-label" text="°" />
+                            </ui:VisualElement>
+
+                            <!-- High Twist Limit -->
+                            <ui:VisualElement name="high-twist-row" class="limit-slider-row">
+                                <ui:Label name="high-twist-label" class="limit-slider-label" text="High Twist" />
+                                <ui:Slider name="high-twist-slider" class="limit-slider" low-value="0" high-value="180" />
+                                <uie:FloatField name="high-twist-field" class="limit-value-field" />
+                                <ui:Label class="limit-unit-label" text="°" />
+                            </ui:VisualElement>
+
+                            <!-- Swing 1 Limit -->
+                            <ui:VisualElement name="swing1-row" class="limit-slider-row">
+                                <ui:Label name="swing1-label" class="limit-slider-label" text="Swing 1" />
+                                <ui:Slider name="swing1-slider" class="limit-slider" low-value="0" high-value="179" />
+                                <uie:FloatField name="swing1-field" class="limit-value-field" />
+                                <ui:Label class="limit-unit-label" text="°" />
+                            </ui:VisualElement>
+
+                            <!-- Swing 2 Limit -->
+                            <ui:VisualElement name="swing2-row" class="limit-slider-row">
+                                <ui:Label name="swing2-label" class="limit-slider-label" text="Swing 2" />
+                                <ui:Slider name="swing2-slider" class="limit-slider" low-value="0" high-value="179" />
+                                <uie:FloatField name="swing2-field" class="limit-value-field" />
+                                <ui:Label class="limit-unit-label" text="°" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    
+                    <ui:VisualElement name="joint-settings-section" class="section">
+                        <ui:Label name="joint-settings-header" class="section__header" text="Joint Settings" />
+                        <ui:VisualElement name="joint-settings-content" class="section__content">
+                            <ui:Toggle name="projection-toggle" label="Enable Projection" class="field" />
+                            <ui:Toggle name="preprocessing-toggle" label="Enable Preprocessing" class="field" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
+                     <!-- Mass Panel - Initially hidden -->
+                <ui:VisualElement name="mass-panel" class="panel">
+                    <ui:Label text="Chain Mass Distribution" class="panel-title" />
+    
+                    <!-- Total Mass Section -->
+                    <ui:VisualElement class="input-group">
+                        <ui:Label text="Total Chain Mass:" class="input-label" />
+                        <uie:FloatField name="total-mass-field" class="input-field" />
+                    </ui:VisualElement>
+    
+                    <!-- Individual Node Mass Section -->
+                    <ui:VisualElement class="input-group">
+                        <ui:Label name="selected-node-label" text="Selected Node Mass:" class="input-label" />
+                        <uie:FloatField name="node-mass-field" class="input-field" />
+                    </ui:VisualElement>
+    
+                    <!-- Auto Calculate Button -->
+                    <ui:Button name="auto-calc-btn" text="Auto Calculate Total" class="btn btn--primary" />
+                    <!-- Auto Distribute Button -->
+                    <ui:Button name="distribute-btn" text="Distribute Mass" class="btn btn--primary" />
+    
+                    <!-- Node List Container -->
+                    <ui:ScrollView name="node-list-container" class="node-list" />
+                </ui:VisualElement>
+
+                <!-- Fit Panel - Initially hidden -->
+                <ui:VisualElement name="fit-panel" class="panel">
+                    <ui:VisualElement name="fit-section" class="section">
+                        <ui:Label name="fit-header" class="section__header" text="Auto-Fit Collider" />
+                        <ui:VisualElement name="fit-content" class="section__content">
+                            <uie:EnumField name="search-scope-field" label="Search Scope" class="field" />
+                            <uie:EnumField name="anchor-mode-field" label="Anchor Mode" class="field" />
+                            <ui:Button name="auto-fit-btn" class="btn--large" text="Auto-Fit" />
+                            <ui:Label name="fit-help" class="help-text" text="Auto-fit will analyze child meshes and adjust the collider to fit them. Use different search scopes and anchor modes for different results." />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
+            </ui:VisualElement>
+        </ui:ScrollView>
+
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,376 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3869fb7b248e89b4284087dd35d210f6, type: 3}
+  m_Name: HumenoidRagdollPreset
+  m_EditorClassIdentifier: 
+  m_presetName: HumenoidRagdollPreset
+  m_description: Preset created from 6 chain(s)
+  m_chainTemplates:
+  - ChainName: Head
+    TotalMass: 2
+    NodeTemplates:
+    - NodeName: B-head
+      ColliderType: 0
+      ColliderSize: {x: 0.8, y: 0.8, z: 0.8}
+      ColliderRadius: 0.12
+      ColliderHeight: 0.2
+      CapsuleDirection: 0
+      LocalOffset: {x: -0.1098641, y: 0, z: 0.0050625904}
+      MassOverride: 2
+      JointStability: 1
+      JointAnchorLocal: {x: 0, y: 0, z: 0}
+      JointConnectedAnchorLocal: {x: 0, y: 0, z: 0}
+      JointAxisLocal: {x: 0, y: 0, z: 1}
+      JointLimits:
+        lowTwistLimit:
+          Limit: -30
+          Bounciness: 0
+          ContactDistance: 0
+        highTwistLimit:
+          Limit: 30
+          Bounciness: 0
+          ContactDistance: 0
+        swing1Limit:
+          Limit: 30
+          Bounciness: 0
+          ContactDistance: 0
+        swing2Limit:
+          Limit: 30
+          Bounciness: 0
+          ContactDistance: 0
+      JointEnableProjection: 0
+      JointEnablePreprocessing: 0
+  - ChainName: Upper Body
+    TotalMass: 10
+    NodeTemplates:
+    - NodeName: B-hips
+      ColliderType: 2
+      ColliderSize: {x: 0.14320719, y: 0.30712157, z: 0.24854445}
+      ColliderRadius: 0.1
+      ColliderHeight: 0.3
+      CapsuleDirection: 0
+      LocalOffset: {x: -0.16690107, y: -5.231807e-19, z: -0.0012069643}
+      MassOverride: 6.666667
+      JointStability: 1
+      JointAnchorLocal: {x: 0, y: 0, z: 0}
+      JointConnectedAnchorLocal: {x: 0, y: 0, z: 0}
+      JointAxisLocal: {x: 0, y: 1, z: 0}
+      JointLimits:
+        lowTwistLimit:
+          Limit: -92
+          Bounciness: 0
+          ContactDistance: 0
+        highTwistLimit:
+          Limit: 30
+          Bounciness: 0
+          ContactDistance: 0
+        swing1Limit:
+          Limit: 88
+          Bounciness: 0
+          ContactDistance: 0
+        swing2Limit:
+          Limit: 91
+          Bounciness: 0
+          ContactDistance: 0
+      JointEnableProjection: 0
+      JointEnablePreprocessing: 0
+    - NodeName: B-spine
+      ColliderType: 2
+      ColliderSize: {x: 0.44754645, y: 0.3204881, z: 0.24014632}
+      ColliderRadius: 0.1
+      ColliderHeight: 0.3
+      CapsuleDirection: 0
+      LocalOffset: {x: -0.27371305, y: -1.4248215e-18, z: -0.022585379}
+      MassOverride: 3.3333335
+      JointStability: 1
+      JointAnchorLocal: {x: 0, y: 0, z: 0}
+      JointConnectedAnchorLocal: {x: 0, y: 0, z: 0}
+      JointAxisLocal: {x: 0, y: 0, z: -1}
+      JointLimits:
+        lowTwistLimit:
+          Limit: 0
+          Bounciness: 0
+          ContactDistance: 0
+        highTwistLimit:
+          Limit: 0.1
+          Bounciness: 0
+          ContactDistance: 0
+        swing1Limit:
+          Limit: 0
+          Bounciness: 0
+          ContactDistance: 0
+        swing2Limit:
+          Limit: 0
+          Bounciness: 0
+          ContactDistance: 0
+      JointEnableProjection: 0
+      JointEnablePreprocessing: 0
+  - ChainName: Leg Left
+    TotalMass: 3
+    NodeTemplates:
+    - NodeName: B-thigh.L
+      ColliderType: 1
+      ColliderSize: {x: 0.8, y: 0.8, z: 0.8}
+      ColliderRadius: 0.0876574
+      ColliderHeight: 0.30950737
+      CapsuleDirection: 0
+      LocalOffset: {x: -0.21352069, y: -0.015723307, z: 0.0040631304}
+      MassOverride: 1.7142859
+      JointStability: 1
+      JointAnchorLocal: {x: 0, y: 0, z: 0}
+      JointConnectedAnchorLocal: {x: 0, y: 0, z: 0}
+      JointAxisLocal: {x: 0, y: 0, z: 1}
+      JointLimits:
+        lowTwistLimit:
+          Limit: -20
+          Bounciness: 0
+          ContactDistance: 0
+        highTwistLimit:
+          Limit: 70
+          Bounciness: 0
+          ContactDistance: 0
+        swing1Limit:
+          Limit: 30
+          Bounciness: 0
+          ContactDistance: 0
+        swing2Limit:
+          Limit: 0
+          Bounciness: 0
+          ContactDistance: 0
+      JointEnableProjection: 0
+      JointEnablePreprocessing: 0
+    - NodeName: B-shin.L
+      ColliderType: 1
+      ColliderSize: {x: 0.8, y: 0.8, z: 0.8}
+      ColliderRadius: 0.06561907
+      ColliderHeight: 0.36834243
+      CapsuleDirection: 0
+      LocalOffset: {x: -0.2361391, y: -0.0009724775, z: 0.0035742219}
+      MassOverride: 0.8571429
+      JointStability: 1
+      JointAnchorLocal: {x: 0, y: 0, z: 0}
+      JointConnectedAnchorLocal: {x: 0, y: 0, z: 0}
+      JointAxisLocal: {x: 0, y: 0, z: 1}
+      JointLimits:
+        lowTwistLimit:
+          Limit: -70
+          Bounciness: 0
+          ContactDistance: 0
+        highTwistLimit:
+          Limit: 0
+          Bounciness: 0
+          ContactDistance: 0
+        swing1Limit:
+          Limit: 0
+          Bounciness: 0
+          ContactDistance: 0
+        swing2Limit:
+          Limit: 0
+          Bounciness: 0
+          ContactDistance: 0
+      JointEnableProjection: 0
+      JointEnablePreprocessing: 0
+  - ChainName: Leg Right
+    TotalMass: 3
+    NodeTemplates:
+    - NodeName: B-thigh.R
+      ColliderType: 1
+      ColliderSize: {x: 0.8, y: 0.8, z: 0.8}
+      ColliderRadius: 0.089790806
+      ColliderHeight: 0.29791602
+      CapsuleDirection: 0
+      LocalOffset: {x: -0.21914038, y: 0.018445395, z: 0.007256295}
+      MassOverride: 1.7142859
+      JointStability: 1
+      JointAnchorLocal: {x: 0, y: 0, z: 0}
+      JointConnectedAnchorLocal: {x: 0, y: 0, z: 0}
+      JointAxisLocal: {x: 0, y: 0, z: 1}
+      JointLimits:
+        lowTwistLimit:
+          Limit: -20
+          Bounciness: 0
+          ContactDistance: 0
+        highTwistLimit:
+          Limit: 70
+          Bounciness: 0
+          ContactDistance: 0
+        swing1Limit:
+          Limit: 30
+          Bounciness: 0
+          ContactDistance: 0
+        swing2Limit:
+          Limit: 5
+          Bounciness: 0
+          ContactDistance: 0
+      JointEnableProjection: 0
+      JointEnablePreprocessing: 0
+    - NodeName: B-shin.R
+      ColliderType: 1
+      ColliderSize: {x: 0.8, y: 0.8, z: 0.8}
+      ColliderRadius: 0.06324549
+      ColliderHeight: 0.37041527
+      CapsuleDirection: 0
+      LocalOffset: {x: -0.23651181, y: 0.0067867576, z: 0.006534729}
+      MassOverride: 0.8571429
+      JointStability: 1
+      JointAnchorLocal: {x: 0, y: 0, z: 0}
+      JointConnectedAnchorLocal: {x: 0, y: 0, z: 0}
+      JointAxisLocal: {x: 0, y: 0, z: 1}
+      JointLimits:
+        lowTwistLimit:
+          Limit: -70
+          Bounciness: 0
+          ContactDistance: 0
+        highTwistLimit:
+          Limit: 0
+          Bounciness: 0
+          ContactDistance: 0
+        swing1Limit:
+          Limit: 0
+          Bounciness: 0
+          ContactDistance: 0
+        swing2Limit:
+          Limit: 0
+          Bounciness: 0
+          ContactDistance: 0
+      JointEnableProjection: 0
+      JointEnablePreprocessing: 0
+  - ChainName: Arm Left
+    TotalMass: 3
+    NodeTemplates:
+    - NodeName: B-upper_arm.L
+      ColliderType: 1
+      ColliderSize: {x: 0.8, y: 0.8, z: 0.8}
+      ColliderRadius: 0.062018912
+      ColliderHeight: 0.13530454
+      CapsuleDirection: 0
+      LocalOffset: {x: -0.12018457, y: 0.010170286, z: -0.00000010803342}
+      MassOverride: 4.3928366
+      JointStability: 1
+      JointAnchorLocal: {x: 0, y: 0, z: 0}
+      JointConnectedAnchorLocal: {x: 0, y: 0, z: 0}
+      JointAxisLocal: {x: -1, y: 4, z: 0}
+      JointLimits:
+        lowTwistLimit:
+          Limit: -70
+          Bounciness: 0
+          ContactDistance: 0
+        highTwistLimit:
+          Limit: 10
+          Bounciness: 0
+          ContactDistance: 0
+        swing1Limit:
+          Limit: 30
+          Bounciness: 0
+          ContactDistance: 0
+        swing2Limit:
+          Limit: 30
+          Bounciness: 0
+          ContactDistance: 0
+      JointEnableProjection: 0
+      JointEnablePreprocessing: 0
+    - NodeName: B-forearm.L
+      ColliderType: 1
+      ColliderSize: {x: 0.8, y: 0.8, z: 0.8}
+      ColliderRadius: 0.050964706
+      ColliderHeight: 0.4290344
+      CapsuleDirection: 0
+      LocalOffset: {x: -0.26217836, y: 0.01023323, z: 0.0010001631}
+      MassOverride: 2.1964183
+      JointStability: 1
+      JointAnchorLocal: {x: 0, y: 0, z: 0}
+      JointConnectedAnchorLocal: {x: 0, y: 0, z: 0}
+      JointAxisLocal: {x: 0, y: 0, z: 1}
+      JointLimits:
+        lowTwistLimit:
+          Limit: -30
+          Bounciness: 0
+          ContactDistance: 0
+        highTwistLimit:
+          Limit: 30
+          Bounciness: 0
+          ContactDistance: 0
+        swing1Limit:
+          Limit: 30
+          Bounciness: 0
+          ContactDistance: 0
+        swing2Limit:
+          Limit: 30
+          Bounciness: 0
+          ContactDistance: 0
+      JointEnableProjection: 0
+      JointEnablePreprocessing: 0
+  - ChainName: Arm Right
+    TotalMass: 3
+    NodeTemplates:
+    - NodeName: B-upper_arm.R
+      ColliderType: 1
+      ColliderSize: {x: 0.8, y: 0.8, z: 0.8}
+      ColliderRadius: 0.057836466
+      ColliderHeight: 0.16098318
+      CapsuleDirection: 0
+      LocalOffset: {x: -0.13497402, y: -0.0048346566, z: -0.0000005699694}
+      MassOverride: 3.8906264
+      JointStability: 1
+      JointAnchorLocal: {x: 0, y: 0, z: 0}
+      JointConnectedAnchorLocal: {x: 0, y: 0, z: 0}
+      JointAxisLocal: {x: -1, y: 4, z: 0}
+      JointLimits:
+        lowTwistLimit:
+          Limit: -70
+          Bounciness: 0
+          ContactDistance: 0
+        highTwistLimit:
+          Limit: 10
+          Bounciness: 0
+          ContactDistance: 0
+        swing1Limit:
+          Limit: 40
+          Bounciness: 0
+          ContactDistance: 0
+        swing2Limit:
+          Limit: 40
+          Bounciness: 0
+          ContactDistance: 0
+      JointEnableProjection: 0
+      JointEnablePreprocessing: 0
+    - NodeName: B-forearm.R
+      ColliderType: 1
+      ColliderSize: {x: 0.8, y: 0.8, z: 0.8}
+      ColliderRadius: 0.049597006
+      ColliderHeight: 0.3767706
+      CapsuleDirection: 0
+      LocalOffset: {x: -0.24844447, y: -0.004397707, z: -0.008830536}
+      MassOverride: 1.9453132
+      JointStability: 1
+      JointAnchorLocal: {x: 0, y: 0, z: 0}
+      JointConnectedAnchorLocal: {x: 0, y: 0, z: 0}
+      JointAxisLocal: {x: 0, y: 0, z: 1}
+      JointLimits:
+        lowTwistLimit:
+          Limit: -30
+          Bounciness: 0
+          ContactDistance: 0
+        highTwistLimit:
+          Limit: 30
+          Bounciness: 0
+          ContactDistance: 0
+        swing1Limit:
+          Limit: 30
+          Bounciness: 0
+          ContactDistance: 0
+        swing2Limit:
+          Limit: 30
+          Bounciness: 0
+          ContactDistance: 0
+      JointEnableProjection: 0
+      JointEnablePreprocessing: 0

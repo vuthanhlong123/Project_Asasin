@@ -189,6 +189,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &474617947128939055
 GameObject:
@@ -865,7 +866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4cdba485b735c4193f2c375b6724ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: -0.08, y: 0.037, z: -0.01}
+  position: {x: -0.081, y: 0.037, z: -0.1}
   rotation: {x: 0, y: 0, z: -4}
   defaultPosition: {x: 0, y: 0, z: 0}
   defaultRotation: {x: 0, y: 0, z: 0}

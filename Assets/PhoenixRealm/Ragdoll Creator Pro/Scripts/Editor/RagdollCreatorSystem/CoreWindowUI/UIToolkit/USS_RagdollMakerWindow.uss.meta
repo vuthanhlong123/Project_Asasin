@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a10e864eb525b83418b693b23d859d1a
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 12385, guid: 0000000000000000e000000000000000, type: 0}
+  disableValidation: 0
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342842
+  packageName: Ragdoll Creator Pro
+  packageVersion: 1.2.0
+  assetPath: Assets/PhoenixRealm/Ragdoll Creator Pro/Scripts/Editor/RagdollCreatorSystem/CoreWindowUI/UIToolkit/USS_RagdollMakerWindow.uss
+  uploadId: 822240

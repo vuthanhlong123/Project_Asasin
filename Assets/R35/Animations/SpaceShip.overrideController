@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpaceShip
+  m_Controller: {fileID: 9100000, guid: 8230ffe5ca6376a41bd2c3d29767cf0a, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 4106399916549189888, guid: 422ff764847900148b10d8152813f29a,
+      type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 626e6a4780234aa43bb5abc6e3c4fec0, type: 2}
+  - m_OriginalClip: {fileID: -7083017359317430695, guid: 422ff764847900148b10d8152813f29a,
+      type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: eefa26134ca950642ae53649607af357, type: 2}
+  - m_OriginalClip: {fileID: -6786967743457931136, guid: 422ff764847900148b10d8152813f29a,
+      type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: f032aab489da7284d94fdb4e7c45ccc5, type: 2}
+  - m_OriginalClip: {fileID: 7584922483394396239, guid: 422ff764847900148b10d8152813f29a,
+      type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 1fb469d86a49192438480551c25d32f8, type: 2}
+  - m_OriginalClip: {fileID: 2893315954592766845, guid: 422ff764847900148b10d8152813f29a,
+      type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 71cdf83f0483f364f8d9819a8562e383, type: 2}

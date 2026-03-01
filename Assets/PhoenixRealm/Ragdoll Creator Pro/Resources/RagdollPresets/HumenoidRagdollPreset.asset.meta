@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 46d95ea01c8dfd9479603ac8929cb0e8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342842
+  packageName: Ragdoll Creator Pro
+  packageVersion: 1.2.0
+  assetPath: Assets/PhoenixRealm/Ragdoll Creator Pro/Resources/RagdollPresets/HumenoidRagdollPreset.asset
+  uploadId: 822240

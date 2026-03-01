@@ -623,13 +623,13 @@ namespace Asasingame.Core.Airplane.Runtimes
                 currentEngineEmisValue = math.lerp(currentEngineEmisValue, targetEngineEmisValue, engineEmission_ModifySpeed * Time.deltaTime);
                 model_Renderer.GetPropertyBlock(engineEmisMaterialBlock);
                 engineEmisMaterialBlock.SetColor("_EmissionColor", engineEmission_Gradient.Evaluate(currentEngineEmisValue)*engineEmission_TurboInsensity);
-                model_Renderer.SetPropertyBlock(engineEmisMaterialBlock,1);
+                model_Renderer.SetPropertyBlock(engineEmisMaterialBlock,0);
             }
             else
             {
                 model_Renderer.GetPropertyBlock(engineEmisMaterialBlock);
                 engineEmisMaterialBlock.SetColor("_EmissionColor", Color.black);
-                model_Renderer.SetPropertyBlock(engineEmisMaterialBlock, 1);
+                model_Renderer.SetPropertyBlock(engineEmisMaterialBlock, 0);
             }
         }
 

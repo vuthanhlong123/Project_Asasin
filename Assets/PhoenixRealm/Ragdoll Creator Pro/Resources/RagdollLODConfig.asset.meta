@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f08155628782a1547a90e04132a30244
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342842
+  packageName: Ragdoll Creator Pro
+  packageVersion: 1.2.0
+  assetPath: Assets/PhoenixRealm/Ragdoll Creator Pro/Resources/RagdollLODConfig.asset
+  uploadId: 822240

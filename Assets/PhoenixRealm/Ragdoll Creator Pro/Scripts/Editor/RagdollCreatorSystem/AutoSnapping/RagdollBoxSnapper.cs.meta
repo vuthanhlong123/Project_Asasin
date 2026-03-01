@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 452f886ba4683ea47b406050c42baab5
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342842
+  packageName: Ragdoll Creator Pro
+  packageVersion: 1.2.0
+  assetPath: Assets/PhoenixRealm/Ragdoll Creator Pro/Scripts/Editor/RagdollCreatorSystem/AutoSnapping/RagdollBoxSnapper.cs
+  uploadId: 822240

@@ -19,6 +19,7 @@ namespace Asasingame.Core.Airplane.Runtimes
         [Header("Camera values")]
         [SerializeField] private float cameraDefaultFov = 60f;
         [SerializeField] private float cameraTurboFov = 40f;
+        [SerializeField] private float fovChangeSpeed = 100f;
 
         public bool IsAimming => aimCamera.gameObject.activeSelf;
 
@@ -99,7 +100,7 @@ namespace Asasingame.Core.Airplane.Runtimes
 
         public void ChangeCameraFov(float _fov)
         {
-            float _deltatime = Time.deltaTime * 100f;
+            float _deltatime = Time.deltaTime * fovChangeSpeed;
             freeLook.m_Lens.FieldOfView = Mathf.Lerp(freeLook.m_Lens.FieldOfView, _fov, 0.05f * _deltatime);
         }
 

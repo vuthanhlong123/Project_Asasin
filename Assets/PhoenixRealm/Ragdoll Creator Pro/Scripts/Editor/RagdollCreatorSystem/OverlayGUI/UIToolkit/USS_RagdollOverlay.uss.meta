@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 7c022af3dc8f99b4791184b31ddc55c3
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 12385, guid: 0000000000000000e000000000000000, type: 0}
+  disableValidation: 0
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342842
+  packageName: Ragdoll Creator Pro
+  packageVersion: 1.2.0
+  assetPath: Assets/PhoenixRealm/Ragdoll Creator Pro/Scripts/Editor/RagdollCreatorSystem/OverlayGUI/UIToolkit/USS_RagdollOverlay.uss
+  uploadId: 822240

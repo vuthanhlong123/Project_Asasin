@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 00b13263f7879d44ca7404b27ee830de
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342842
+  packageName: Ragdoll Creator Pro
+  packageVersion: 1.2.0
+  assetPath: Assets/PhoenixRealm/Ragdoll Creator Pro/Scripts/Runtime/RagdollCreeatorSystem/ChainManagement/CustomNodeJointLimits.cs
+  uploadId: 822240

@@ -1,0 +1,43 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Scripts/Editor/CoreWindowUI/UIToolkit/USS_RagdollMakerWindow.uss?fileID=7433441132597879392&amp;guid=a10e864eb525b83418b693b23d859d1a&amp;type=3#USS_RagdollMakerWindow" />
+    <ui:VisualElement name="root" class="root">
+        <ui:VisualElement name="banner" class="banner">
+            <ui:Image name="banner-image" class="banner__image" />
+        </ui:VisualElement>
+        <ui:ScrollView name="main-scroll" class="main-scroll">
+            <ui:VisualElement name="character-section" class="section">
+                <ui:Label text="Character Setup" class="section__title" />
+                <ui:VisualElement name="character-content" class="section__content">
+                    <ui:VisualElement name="character-row" class="row">
+                        <uie:ObjectField name="character-field" label="Character" type="UnityEngine.GameObject" class="character-field" />
+                        <ui:Button name="create-ragdoll-btn" text="Create Ragdoll Map" class="btn btn--primary" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="character-status" class="character-status">
+                        <ui:Label name="character-status-text" text="No character assigned" class="status-text" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="sync-buttons" class="sync-buttons">
+                        <ui:Button name="sync-from-btn" text="Load from Character" class="btn btn--secondary" />
+                        <ui:Button name="sync-to-btn" text="Save to Character" class="btn btn--secondary" />
+                        <ui:Button name="bake-btn" text="Bake Ragdoll" class="btn btn--accent" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="chains-section" class="section">
+                <ui:VisualElement name="chains-header" class="section__header">
+                    <ui:Label text="Chains" class="section__title" />
+                    <ui:Button name="add-chain-btn" text="Add New Chain" class="btn btn--accent" />
+                </ui:VisualElement>
+                <ui:VisualElement name="chains-content" class="section__content section__content--tight">
+                    <ui:VisualElement name="preset-buttons" class="preset-buttons" />
+                    <ui:VisualElement name="chains-container" class="chains-container" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="validation-section" class="section validation-section">
+                <ui:Label text="Validation" class="section__title" />
+                <ui:ScrollView name="validation-scroll" class="validation-scroll">
+                    <ui:VisualElement name="validation-container" class="validation-container" />
+                </ui:ScrollView>
+            </ui:VisualElement>
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>
