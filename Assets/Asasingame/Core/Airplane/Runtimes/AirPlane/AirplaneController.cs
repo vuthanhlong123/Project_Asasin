@@ -189,6 +189,13 @@ namespace Asasingame.Core.Airplane.Runtimes
         [SerializeField] private float highSpeedSmooke_StartAtSpeed;
         [SerializeField] private float highSpeedSmooke_StartAtAngleInterval;
         [SerializeField] private ParticleSystem[] highSpeedSmooke_Particles;
+
+        [Header("Full Screen Speed Effect")]
+        [SerializeField] private Material fullScreenSpeedMaterial;
+        [SerializeField] private float fullScreenSpeedFX_defaultValue;
+        [SerializeField] private float fullScreenSpeedFX_turboValue;
+        [SerializeField] private float fullScreenSpeedFX_changeSpeed;
+
         private Vector3 lastDirection;
 
         private MaterialPropertyBlock engineEmisMaterialBlock;
@@ -254,6 +261,7 @@ namespace Asasingame.Core.Airplane.Runtimes
             UpdateEngineFireShaderFX();
             UpdateHighSpeedSmooke();
             UpdateMotionBlur();
+            UpdateFullScreenSpeedFX();
 
 
             //Airplane move only if not dead
@@ -612,6 +620,24 @@ namespace Asasingame.Core.Airplane.Runtimes
                 if (motionBlur)
                 {
                     motionBlur.intensity.value = math.lerp(motionBlur.intensity.value, 0, motionBlurModifySpeed * Time.deltaTime);
+                }
+            }
+        }
+
+        private void UpdateFullScreenSpeedFX()
+        {
+            if (!planeIsDead)
+            {
+                if (fullScreenSpeedMaterial)
+                {
+                    fullScreenSpeedMaterial.SetFloat("_Alpha", math.lerp(fullScreenSpeedFX_defaultValue,  fullScreenSpeedFX_turboValue, (currentSpeed - defaultSpeed) / (turboSpeed - defaultSpeed)));
+                }
+            }
+            else
+            {
+                if (fullScreenSpeedMaterial)
+                {
+                    fullScreenSpeedMaterial.SetFloat("_Alpha", math.lerp(fullScreenSpeedFX_defaultValue, fullScreenSpeedFX_turboValue, 0));
                 }
             }
         }
