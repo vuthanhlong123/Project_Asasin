@@ -393576,12 +393576,17 @@ PrefabInstance:
     - target: {fileID: 2181554259415168813, guid: 365989104bab89047b810e46a38f7798,
         type: 3}
       propertyPath: sprintSpeed
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2181554259415168813, guid: 365989104bab89047b810e46a38f7798,
         type: 3}
       propertyPath: stepInterval
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181554259415168813, guid: 365989104bab89047b810e46a38f7798,
+        type: 3}
+      propertyPath: tacticalSprintSpeed
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2345020356142646156, guid: 365989104bab89047b810e46a38f7798,
         type: 3}

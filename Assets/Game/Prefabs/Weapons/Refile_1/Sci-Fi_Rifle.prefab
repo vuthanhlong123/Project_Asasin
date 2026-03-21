@@ -87,12 +87,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc5b6c25f2c78146ad3c0c90edebc83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.0000076108013
-  amount: 0.000006746184
+  speed: 7
+  amount: 6
   position:
     smoothTime: 0
     amount: {x: 0.00065, y: 0.00065, z: 0.00065}
-    speed: {x: 1, y: 2, z: 2}
+    speed: {x: 1.5, y: 3, z: 3}
     result: {x: 0.0000000033701735, y: -5.6069793e-10, z: -5.6069793e-10}
   rotation:
     smoothTime: 0

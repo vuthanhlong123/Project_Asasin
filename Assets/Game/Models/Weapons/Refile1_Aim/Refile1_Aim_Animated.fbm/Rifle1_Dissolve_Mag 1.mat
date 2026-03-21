@@ -137,11 +137,11 @@ Material:
     - _CastShadows: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Cull: 2
+    - _Cull: 0
     - _Cutoff: 0
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DissolveAmount: 0.0062168837
+    - _DissolveAmount: 0.0024937391
     - _Dissolve_Amount: 0
     - _DstBlend: 0
     - _DstBlendAlpha: 0
@@ -208,7 +208,7 @@ Material:
     m_Colors:
     - _Additional_Edge_Color_1: {r: 13.246825, g: 2.3181944, b: 63.25359, a: 0}
     - _Additional_Edge_Color_2: {r: 0, g: 0, b: 0, a: 0}
-    - _Back_Color: {r: 28.109804, g: 56.21961, b: 0, a: 1}
+    - _Back_Color: {r: 56.219627, g: 0.5333772, b: 0, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Burn_Color: {r: 7.307888, g: 32.383606, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

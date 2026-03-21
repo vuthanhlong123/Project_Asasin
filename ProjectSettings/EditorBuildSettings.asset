@@ -17,6 +17,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Akila/FPS Framework Pro/Scenes/Multiplayer/Multiplayer Demo.unity
     guid: 32a9f4c89688abf4da268801954a5d46
+  - enabled: 1
+    path: Assets/Game/Scenes/Home.unity
+    guid: 7a712d2ca5774714596e541a8b00f2c7
+  - enabled: 1
+    path: Assets/Game/Scenes/HeavyStation.unity
+    guid: efec71d13f1ca4f47ad08fabd44e7ebe
+  - enabled: 1
+    path: Assets/Game/Scenes/LargeShip.unity
+    guid: 679970aefe97eea4ca97e659314be002
+  - enabled: 1
+    path: Assets/Game/Scenes/Game.unity
+    guid: e30b0828b3d6dfc4eba665005d8d21da
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
       type: 2}
