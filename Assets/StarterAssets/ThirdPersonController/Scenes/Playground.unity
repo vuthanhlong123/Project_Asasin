@@ -846,6 +846,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerT3
       objectReference: {fileID: 0}
+    - target: {fileID: 3160207330512316835, guid: d7f7fee933c22bd4ab3be2fda1a08bc1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3843452834531494038, guid: d7f7fee933c22bd4ab3be2fda1a08bc1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -963,14 +968,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114283754330233424}
   m_Enabled: 1
-  serializedVersion: 11
+  serializedVersion: 12
   m_Type: 1
   m_Color: {r: 0.972549, g: 0.9607843, b: 0.8784314, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
+  m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
     m_Type: 2
     m_Resolution: 2
