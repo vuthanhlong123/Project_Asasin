@@ -165,17 +165,20 @@ namespace Asasingame.Core.Airplane.Runtimes
                 drawDatas.Add(newData);
             }
 
-            weaponManager.Initialize(drawDatas);
+            if(weaponManager)
+                weaponManager.Initialize(drawDatas);
         }
 
         public void DrawActiveWeaponUI()
         {
-            weaponManager.ShowWeaponActivate(currentReadyWeaponUnit.Data.Icon, GetTotalBulletOfCurrentWeapon(), currentReadyWeaponUnit.Data.BulletMode);
+            if (weaponManager)
+                weaponManager.ShowWeaponActivate(currentReadyWeaponUnit.Data.Icon, GetTotalBulletOfCurrentWeapon(), currentReadyWeaponUnit.Data.BulletMode);
         }
 
         public void UpdateActiveWeaponUI()
         {
-            weaponManager.UpdateWeaponBullet(GetTotalBulletOfCurrentWeapon(), currentReadyWeaponUnit.Data.BulletMode);
+            if (weaponManager)
+                weaponManager.UpdateWeaponBullet(GetTotalBulletOfCurrentWeapon(), currentReadyWeaponUnit.Data.BulletMode);
         }
     }
 }
