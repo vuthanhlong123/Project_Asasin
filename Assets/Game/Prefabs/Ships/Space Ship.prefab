@@ -798,6 +798,7 @@ GameObject:
   - component: {fileID: 2885315368490591113}
   - component: {fileID: 3191296518521967253}
   - component: {fileID: 188637243108343907}
+  - component: {fileID: 6965341880337631398}
   m_Layer: 0
   m_Name: Space Ship
   m_TagString: Untagged
@@ -1008,6 +1009,19 @@ MonoBehaviour:
   mat: {fileID: 2100000, guid: 407fab50fadb0c442939c869087fbc35, type: 2}
   fsFeature: {fileID: -7191465436062636283, guid: 65bc7dbf4170f435aa868c779acfb082,
     type: 2}
+--- !u!114 &6965341880337631398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031373055304431907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b936084bf7075e46b9bfae2c4a19607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Runtimes.Player.SpaceShipPlayer
+  sample_Player: {fileID: 0}
 --- !u!1 &2078706977950399372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1640,7 +1654,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3376755602739202090}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000020685867, y: 0.99962616, z: 0.02734282, w: -0.00000093203175}
+  m_LocalRotation: {x: 0.0000000293982, y: 0.99962616, z: 0.027342848, w: -0.0000010082568}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2245,7 +2259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5055642155563425692}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00000004707608, y: 0.9985772, z: 0.05332579, w: -0.00000093079564}
+  m_LocalRotation: {x: 0.000000055604882, y: 0.9985772, z: 0.05332581, w: -0.0000010071516}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3337,7 +3351,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 10000
+  far clip plane: 100000
   field of view: 55
   orthographic: 0
   orthographic size: 10
@@ -4329,7 +4343,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8514992550129101413}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000068041516, y: 0.9968641, z: 0.079133205, w: -0.0000009294115}
+  m_LocalRotation: {x: 0.0000000816333, y: 0.9968641, z: 0.07913324, w: -0.0000010053767}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
