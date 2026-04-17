@@ -799,6 +799,7 @@ GameObject:
   - component: {fileID: 3191296518521967253}
   - component: {fileID: 188637243108343907}
   - component: {fileID: 6965341880337631398}
+  - component: {fileID: 5669015096968741809}
   m_Layer: 0
   m_Name: Space Ship
   m_TagString: Untagged
@@ -908,8 +909,8 @@ MonoBehaviour:
   yawTurboMultiplier: 0.3
   pitchTurboMultiplier: 0.5
   rollTurboMultiplier: 1
-  defaultSpeed: 100
-  turboSpeed: 500
+  defaultSpeed: 10
+  turboSpeed: 200
   accelerating: 50
   deaccelerating: 40
   turboHeatingSpeed: 0
@@ -1021,7 +1022,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b936084bf7075e46b9bfae2c4a19607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Runtimes.Player.SpaceShipPlayer
-  sample_Player: {fileID: 0}
+--- !u!114 &5669015096968741809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031373055304431907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2c7eba2d676c941ba05d356a74f343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Runtimes.Events.GameObjectActiveEvent
+  eventDelayTime: 1
+  OnActivate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Game.Runtimes.LensFlares.CameraLensFlareController,
+          Assembly-CSharp
+        m_MethodName: Refresh
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2078706977950399372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,7 +1139,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2173029092019010864}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.000000007450344, y: -0.000000029757162, z: -4.74656e-10,
+    w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1189,7 +1219,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2205364544855941647}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.018175611, y: -0.000000032467696, z: 4.6313727e-11, w: 0.9998349}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1346,7 +1376,7 @@ Transform:
   m_GameObject: {fileID: 2950678164961040569}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.831046, y: -4.2075663, z: 32.02749}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1654,7 +1684,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3376755602739202090}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0000000293982, y: 0.99962616, z: 0.027342848, w: -0.0000010082568}
+  m_LocalRotation: {x: 7.8731466e-10, y: 0.9996262, z: 0.027342655, w: -0.0000008919584}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1693,7 +1723,7 @@ MonoBehaviour:
     FieldOfView: 55
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 100000
+    FarClipPlane: 10000
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -2259,7 +2289,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5055642155563425692}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000055604882, y: 0.9985772, z: 0.05332581, w: -0.0000010071516}
+  m_LocalRotation: {x: 0.000000027215865, y: 0.9985772, z: 0.053325642, w: -0.0000008909935}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2298,7 +2328,7 @@ MonoBehaviour:
     FieldOfView: 55
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 100000
+    FarClipPlane: 10000
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -2425,7 +2455,7 @@ MonoBehaviour:
     FieldOfView: 55
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 100000
+    FarClipPlane: 10000
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -3310,8 +3340,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7365643972254329072}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.17819463, y: 0.000000003063292, z: 5.5474064e-10, w: 0.98399526}
-  m_LocalPosition: {x: 0, y: -2.0699997, z: -20}
+  m_LocalRotation: {x: -0.17819476, y: 0.000000012288501, z: 0.000000002225363, w: 0.98399526}
+  m_LocalPosition: {x: 0, y: -2.07, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3351,7 +3381,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 100000
+  far clip plane: 10000
   field of view: 55
   orthographic: 0
   orthographic size: 10
@@ -4070,7 +4100,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8236279981325193903}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.018141454, y: -0.000000029197057, z: -9.957745e-10, w: 0.9998355}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4343,7 +4373,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8514992550129101413}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0000000816333, y: 0.9968641, z: 0.07913324, w: -0.0000010053767}
+  m_LocalRotation: {x: 0.00000005346849, y: 0.9968641, z: 0.07913309, w: -0.00000088935246}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4382,7 +4412,7 @@ MonoBehaviour:
     FieldOfView: 55
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 100000
+    FarClipPlane: 10000
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}

@@ -42,7 +42,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: -0.00029846994
+    - _Alpha: 1.0338029
     - _Fullscreen_AlphaBlendOperation: 0
     - _Fullscreen_BlendMode: 3
     - _Fullscreen_ColorBlendOperation: 0

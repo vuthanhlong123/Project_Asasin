@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.VFX;
@@ -17,18 +18,14 @@ namespace GameAsset.WarpSpeedFX
 
         private void Start()
         {
-            _vfx.Stop();
+            //_vfx.Stop();
             _vfx.SetFloat("Strength", 0);
-
             _cylinder.material.SetFloat("_Active", 0);
-
-            Active();
-
-            Invoke(nameof(DeActive), 10);
         }
 
         public void Active()
         {
+            gameObject.SetActive(true);
             warpActive = true;
             StopAllCoroutines();
             StartCoroutine(ActivateEffect());
@@ -37,13 +34,31 @@ namespace GameAsset.WarpSpeedFX
 
         public void DeActive()
         {
-            warpActive = false;
             StopAllCoroutines();
-            StartCoroutine(ActivateEffect());
-            StartCoroutine(ActivateCylinder());
+            StartCoroutine(DeActiveCoroutine(() =>
+            {
+                gameObject.SetActive(false);
+            }));
         }
 
-        private IEnumerator ActivateEffect()
+        private IEnumerator DeActiveCoroutine(Action completed = null)
+        {
+            warpActive = false;
+            bool effectCompleted = false;
+            bool cylinderCompleted = false;
+
+            StartCoroutine(ActivateEffect(() => { effectCompleted = true; }));
+            StartCoroutine(ActivateCylinder(() => { cylinderCompleted = true; }));
+
+            while (!effectCompleted || !cylinderCompleted)
+            {
+                yield return null;
+            }
+
+            completed?.Invoke();
+        }
+
+        private IEnumerator ActivateEffect(Action completed = null)
         {
             if (warpActive)
             {
@@ -79,9 +94,11 @@ namespace GameAsset.WarpSpeedFX
 
                 _vfx.Stop();
             }
+
+            completed?.Invoke();
         }
 
-        private IEnumerator ActivateCylinder()
+        private IEnumerator ActivateCylinder(Action completed = null)
         {
             if (warpActive)
             {
@@ -115,6 +132,8 @@ namespace GameAsset.WarpSpeedFX
                     yield return new WaitForSeconds(0.1f);
                 }
             }
+
+            completed?.Invoke();
         }
     }
 }

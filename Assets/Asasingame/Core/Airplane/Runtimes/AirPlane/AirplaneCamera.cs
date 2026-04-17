@@ -1,5 +1,6 @@
 using Cinemachine;
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -41,7 +42,21 @@ namespace Asasingame.Core.Airplane.Runtimes
         private CinemachineBasicMultiChannelPerlin midRigNoise;
         private CinemachineBasicMultiChannelPerlin botRigNoise;
 
+        private float shakeFrequency;
+        private float shakeAmplitude;
+        private float viewMotionBlur;
+        private float viewFOV;
+
+        private Coroutine coroutine_ChangeCameraShakeValue;
+        private Coroutine coroutine_ChangeViewMotionBlurValue;
+        private Coroutine coroutine_ChangeCameraFovValue;
+
         public bool IsAimming => aimCamera.gameObject.activeSelf;
+        public float DefaultFov => cameraDefaultFov;
+        public float ShakeFrequency => shakeFrequency;
+        public float ShakeAmplitude => shakeAmplitude;
+        public float ViewMotionBlur => viewMotionBlur;
+        public float ViewFOV => viewFOV;
 
         public event UnityAction EnableFreeLookCamera;
         public void OnEnableFreeLookCamera() => EnableFreeLookCamera?.Invoke();
@@ -54,6 +69,8 @@ namespace Asasingame.Core.Airplane.Runtimes
         {
             airPlaneController.crashAction += Crash;
             playerInput.actions["Aim"].performed += AirplaneCamera_performed;
+
+            viewFOV = cameraDefaultFov;
         }
        
         private void AirplaneCamera_performed(InputAction.CallbackContext obj)
@@ -102,42 +119,40 @@ namespace Asasingame.Core.Airplane.Runtimes
             botRigNoise = freeLook.GetRig(2).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             CameraFovUpdate();
         }
 
         private void CameraFovUpdate()
         {
+            ChangeShake(shakeAmplitude, shakeFrequency);
+            ChangeMotionBlur(viewMotionBlur);
+            ChangeCameraFov(viewFOV);
+
             //Turbo
-            if(!airPlaneController.PlaneIsDead() && airPlaneController.airplaneState == AirplaneState.Flying)
+            if (!airPlaneController.PlaneIsDead() && airPlaneController.airplaneState == AirplaneState.Flying)
             {
                 if (Input.GetKey(KeyCode.LeftShift) && !airPlaneController.TurboOverheating())
                 {
-                    ChangeCameraFov(cameraTurboFov);
-                    ChangeShake(amplitudeRange.y, frequencyRange.y);
-                    ChangeMotionBlur(motionBlur_max);
+                    //ChangeCameraFov(cameraTurboFov);
+                    //ChangeShake(amplitudeRange.y, frequencyRange.y);
+                    //ChangeMotionBlur(motionBlur_max);
                 }
                 else
                 {
-                    ChangeCameraFov(cameraDefaultFov);
-                    ChangeShake(amplitudeRange.x, frequencyRange.x);
-                    ChangeMotionBlur(motionBlur_min);
+                    //ChangeCameraFov(cameraDefaultFov);
+                    //ChangeShake(amplitudeRange.x, frequencyRange.x);
+                    //ChangeMotionBlur(motionBlur_min);
 
                 }
             }
             else
             {
-                ChangeCameraFov(cameraDefaultFov);
-                ChangeShake(amplitudeRange.x, frequencyRange.x);
-                ChangeMotionBlur(motionBlur_min);
+                //ChangeCameraFov(cameraDefaultFov);
+                //ChangeShake(amplitudeRange.x, frequencyRange.x);
+                //ChangeMotionBlur(motionBlur_min);
             }
-        }
-
-        public void ChangeCameraFov(float _fov)
-        {
-            float _deltatime = Time.deltaTime * fovChangeSpeed;
-            freeLook.m_Lens.FieldOfView = Mathf.Lerp(freeLook.m_Lens.FieldOfView, _fov, 0.05f * _deltatime);
         }
 
         private void Crash()
@@ -146,26 +161,130 @@ namespace Asasingame.Core.Airplane.Runtimes
             brain.m_BlendUpdateMethod = CinemachineBrain.BrainUpdateMethod.FixedUpdate;
         }
 
-        public void ChangeShake(float amplitude, float frequency)
+        private void ChangeCameraFov(float _fov)
         {
-            if(topRigNoise == null || midRigNoise == null || botRigNoise == null)
+            freeLook.m_Lens.FieldOfView = _fov;
+
+            //float _deltatime = Time.deltaTime * fovChangeSpeed;
+            //freeLook.m_Lens.FieldOfView = Mathf.Lerp(freeLook.m_Lens.FieldOfView, _fov, 0.05f * _deltatime);
+        }
+
+        public void ChangeCameraFov(float value, float duration)
+        {
+            if (coroutine_ChangeCameraFovValue != null)
+            {
+                StopCoroutine(coroutine_ChangeCameraFovValue);
+            }
+
+            if(duration > 0)
+                StartCoroutine(DoChangeCameraFovValue(value, duration));
+            else
+            {
+                viewFOV = value;
+            }
+        }
+
+        private IEnumerator DoChangeCameraFovValue(float value, float duration)
+        {
+            float start = Time.time;
+            float startFov = viewFOV;
+
+            while (Time.time - start < duration)
+            {
+                float delta = (Time.time - start) / duration;
+                viewFOV = Mathf.Lerp(startFov, value, delta);
+                yield return null;
+            }
+
+            viewFOV = value;
+        }
+
+
+        private void ChangeShake(float amplitude, float frequency)
+        {
+            if (topRigNoise == null || midRigNoise == null || botRigNoise == null)
             {
                 return;
             }
 
-            float _deltatime = Time.deltaTime * shake_changeSpeed;
+            /*  float _deltatime = Time.deltaTime * shake_changeSpeed;
 
-            topRigNoise.m_AmplitudeGain = midRigNoise.m_AmplitudeGain = botRigNoise.m_AmplitudeGain = Mathf.Lerp(topRigNoise.m_AmplitudeGain, amplitude, 0.05f * _deltatime); 
-            topRigNoise.m_FrequencyGain = midRigNoise.m_FrequencyGain = botRigNoise.m_FrequencyGain = Mathf.Lerp(topRigNoise.m_FrequencyGain, frequency, 0.05f * _deltatime); 
+              topRigNoise.m_AmplitudeGain = midRigNoise.m_AmplitudeGain = botRigNoise.m_AmplitudeGain = Mathf.Lerp(topRigNoise.m_AmplitudeGain, amplitude, 0.05f * _deltatime); 
+              topRigNoise.m_FrequencyGain = midRigNoise.m_FrequencyGain = botRigNoise.m_FrequencyGain = Mathf.Lerp(topRigNoise.m_FrequencyGain, frequency, 0.05f * _deltatime);*/
+            topRigNoise.m_AmplitudeGain = midRigNoise.m_AmplitudeGain = botRigNoise.m_AmplitudeGain = amplitude;
+            topRigNoise.m_FrequencyGain = midRigNoise.m_FrequencyGain = botRigNoise.m_FrequencyGain = frequency;
         }
 
-        public void ChangeMotionBlur(float value)
+        public void ChangeCameraShake(float amplitude, float frequency, float duration)
+        {
+            if (coroutine_ChangeCameraShakeValue != null)
+            {
+                StopCoroutine(coroutine_ChangeCameraShakeValue);
+            }
+
+            if(duration > 0) 
+                StartCoroutine(DoChangeCameraShakeValue(amplitude, frequency, duration));
+            else
+            {
+                shakeAmplitude = amplitude;
+                shakeFrequency = frequency;
+            }
+        }
+
+        private IEnumerator DoChangeCameraShakeValue(float amplitude, float frequency, float duration)
+        {
+            float start = Time.time;
+            float startAmplitude = shakeAmplitude;
+            float startFrequency = shakeFrequency;
+
+            while (Time.time - start < duration)
+            {
+                float delta = (Time.time - start) / duration;
+                shakeAmplitude = Mathf.Lerp(startAmplitude, amplitude, delta);
+                shakeFrequency = Mathf.Lerp(startFrequency, frequency, delta);
+                yield return null;
+            }
+
+            shakeAmplitude = amplitude;
+            shakeFrequency = frequency;
+        }
+
+        private void ChangeMotionBlur(float value)
         {
             if(motionBlur)
             {
-                float _deltatime = Time.deltaTime * motionBlur_changeSpeed;
-                motionBlur.intensity.Override(Mathf.Lerp(motionBlur.intensity.value, value, 0.05f * _deltatime));
+                //float _deltatime = Time.deltaTime * motionBlur_changeSpeed;
+                //motionBlur.intensity.Override(Mathf.Lerp(motionBlur.intensity.value, value, 0.05f * _deltatime));
+
+                motionBlur.intensity.Override(value);
             }
+        }
+
+        public void ChangeViewMotionBlur(float value, float duration)
+        {
+            if(coroutine_ChangeViewMotionBlurValue != null)
+            {
+                StopCoroutine(coroutine_ChangeViewMotionBlurValue);
+            }
+
+            if (duration > 0)
+                StartCoroutine(DoChangeViewMotionBlur(value, duration));
+            else viewMotionBlur = value;
+        }
+
+        private IEnumerator DoChangeViewMotionBlur(float value, float duration)
+        {
+            float start = Time.time;
+            float startMotionBlur = viewMotionBlur;
+
+            while (Time.time - start < duration)
+            {
+                float delta = (Time.time - start) / duration;
+                viewMotionBlur = Mathf.Lerp(startMotionBlur, value, delta);
+                yield return null;
+            }
+
+            viewMotionBlur = value;
         }
     }
 }

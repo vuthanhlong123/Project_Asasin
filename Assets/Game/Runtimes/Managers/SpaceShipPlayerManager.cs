@@ -15,7 +15,20 @@ namespace Game.Runtimes.Managers
 
         private void Awake()
         {
-            instance = this;
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        private void Start()
+        {
+            CreatePlayer(transform);
         }
 
         public void CreatePlayer(Transform spawnPoint)
