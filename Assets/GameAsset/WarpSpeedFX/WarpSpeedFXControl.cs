@@ -9,10 +9,13 @@ namespace GameAsset.WarpSpeedFX
     {
         [SerializeField] private VisualEffect _vfx;
         [SerializeField] private MeshRenderer _cylinder;
+        [SerializeField] private Light _light;
 
         [SerializeField] private float vfxSpeed;
         [SerializeField] private float cylinderSpeed;
         [SerializeField] private float cylinderDelay;
+        [SerializeField] private float lightStrength;
+        [SerializeField] private float lightSpeed;
 
         private bool warpActive;
 
@@ -23,21 +26,42 @@ namespace GameAsset.WarpSpeedFX
             _cylinder.material.SetFloat("_Active", 0);
         }
 
-        public void Active()
+        public void Active(Action completed = null)
         {
             gameObject.SetActive(true);
-            warpActive = true;
             StopAllCoroutines();
-            StartCoroutine(ActivateEffect());
-            StartCoroutine(ActivateCylinder());
+            StartCoroutine(ActiveCoroutine(() =>
+            {
+                completed?.Invoke();
+            }));
         }
 
-        public void DeActive()
+        private IEnumerator ActiveCoroutine(Action completed = null)
+        {
+            warpActive = true;
+            bool effectCompleted = false;
+            bool cylinderCompleted = false;
+            bool lightCompleted = false;
+
+            StartCoroutine(ActivateEffect(() => { effectCompleted = true; }));
+            StartCoroutine(ActivateCylinder(() => { cylinderCompleted = true; }));
+            StartCoroutine(ActivateLight(() => { lightCompleted = true; }));
+
+            while (!effectCompleted || !cylinderCompleted || !lightCompleted)
+            {
+                yield return null;
+            }
+
+            completed?.Invoke();
+        }
+
+        public void DeActive(Action completed = null)
         {
             StopAllCoroutines();
             StartCoroutine(DeActiveCoroutine(() =>
             {
                 gameObject.SetActive(false);
+                completed?.Invoke();
             }));
         }
 
@@ -46,11 +70,13 @@ namespace GameAsset.WarpSpeedFX
             warpActive = false;
             bool effectCompleted = false;
             bool cylinderCompleted = false;
+            bool lightCompleted = false;
 
             StartCoroutine(ActivateEffect(() => { effectCompleted = true; }));
             StartCoroutine(ActivateCylinder(() => { cylinderCompleted = true; }));
+            StartCoroutine(ActivateLight(() => { lightCompleted = true; }));
 
-            while (!effectCompleted || !cylinderCompleted)
+            while (!effectCompleted || !cylinderCompleted || !lightCompleted)
             {
                 yield return null;
             }
@@ -129,6 +155,42 @@ namespace GameAsset.WarpSpeedFX
                     }
 
                     _cylinder.material.SetFloat("_Active", strength);
+                    yield return new WaitForSeconds(0.1f);
+                }
+            }
+
+            completed?.Invoke();
+        }
+
+        private IEnumerator ActivateLight(Action completed = null)
+        {
+            if (warpActive)
+            {
+                float strength = _light.intensity;
+                while (strength < lightStrength)
+                {
+                    strength += lightSpeed;
+                    if (strength > lightStrength)
+                    {
+                        strength = lightStrength;
+                    }
+
+                    _light.intensity = strength;
+                    yield return new WaitForSeconds(0.1f);
+                }
+            }
+            else
+            {
+                float strength = _light.intensity;
+                while (strength > 0)
+                {
+                    strength -= lightSpeed;
+                    if (strength < 0)
+                    {
+                        strength = 0;
+                    }
+
+                    _light.intensity = strength;
                     yield return new WaitForSeconds(0.1f);
                 }
             }

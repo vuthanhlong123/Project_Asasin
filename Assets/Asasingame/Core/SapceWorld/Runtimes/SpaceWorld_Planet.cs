@@ -17,7 +17,6 @@ namespace Asasingame.Core.SpaceWorld.Runtimes
         {
             mainCam = Camera.main;
             defaultPos = transform.position;
-
         }
 
         private void LateUpdate()

@@ -22,14 +22,9 @@ namespace Asasingame.Core.Airplane.Runtimes
 
         [Header("Camera values")]
         [SerializeField] private float cameraDefaultFov = 60f;
-        [SerializeField] private float cameraTurboFov = 40f;
-        [SerializeField] private float fovChangeSpeed = 100f;
 
         [Header("Motion Blur")]
         [SerializeField] private Volume volume;
-        [SerializeField] private float motionBlur_min;
-        [SerializeField] private float motionBlur_max;
-        [SerializeField] private float motionBlur_changeSpeed;
 
         private MotionBlur motionBlur;
 
@@ -57,6 +52,7 @@ namespace Asasingame.Core.Airplane.Runtimes
         public float ShakeAmplitude => shakeAmplitude;
         public float ViewMotionBlur => viewMotionBlur;
         public float ViewFOV => viewFOV;
+        public Vector2 CameraLookXYValue => new Vector2(freeLook.m_XAxis.Value, freeLook.m_YAxis.Value);
 
         public event UnityAction EnableFreeLookCamera;
         public void OnEnableFreeLookCamera() => EnableFreeLookCamera?.Invoke();
@@ -129,30 +125,6 @@ namespace Asasingame.Core.Airplane.Runtimes
             ChangeShake(shakeAmplitude, shakeFrequency);
             ChangeMotionBlur(viewMotionBlur);
             ChangeCameraFov(viewFOV);
-
-            //Turbo
-            if (!airPlaneController.PlaneIsDead() && airPlaneController.airplaneState == AirplaneState.Flying)
-            {
-                if (Input.GetKey(KeyCode.LeftShift) && !airPlaneController.TurboOverheating())
-                {
-                    //ChangeCameraFov(cameraTurboFov);
-                    //ChangeShake(amplitudeRange.y, frequencyRange.y);
-                    //ChangeMotionBlur(motionBlur_max);
-                }
-                else
-                {
-                    //ChangeCameraFov(cameraDefaultFov);
-                    //ChangeShake(amplitudeRange.x, frequencyRange.x);
-                    //ChangeMotionBlur(motionBlur_min);
-
-                }
-            }
-            else
-            {
-                //ChangeCameraFov(cameraDefaultFov);
-                //ChangeShake(amplitudeRange.x, frequencyRange.x);
-                //ChangeMotionBlur(motionBlur_min);
-            }
         }
 
         private void Crash()
@@ -164,9 +136,6 @@ namespace Asasingame.Core.Airplane.Runtimes
         private void ChangeCameraFov(float _fov)
         {
             freeLook.m_Lens.FieldOfView = _fov;
-
-            //float _deltatime = Time.deltaTime * fovChangeSpeed;
-            //freeLook.m_Lens.FieldOfView = Mathf.Lerp(freeLook.m_Lens.FieldOfView, _fov, 0.05f * _deltatime);
         }
 
         public void ChangeCameraFov(float value, float duration)
@@ -207,10 +176,6 @@ namespace Asasingame.Core.Airplane.Runtimes
                 return;
             }
 
-            /*  float _deltatime = Time.deltaTime * shake_changeSpeed;
-
-              topRigNoise.m_AmplitudeGain = midRigNoise.m_AmplitudeGain = botRigNoise.m_AmplitudeGain = Mathf.Lerp(topRigNoise.m_AmplitudeGain, amplitude, 0.05f * _deltatime); 
-              topRigNoise.m_FrequencyGain = midRigNoise.m_FrequencyGain = botRigNoise.m_FrequencyGain = Mathf.Lerp(topRigNoise.m_FrequencyGain, frequency, 0.05f * _deltatime);*/
             topRigNoise.m_AmplitudeGain = midRigNoise.m_AmplitudeGain = botRigNoise.m_AmplitudeGain = amplitude;
             topRigNoise.m_FrequencyGain = midRigNoise.m_FrequencyGain = botRigNoise.m_FrequencyGain = frequency;
         }
@@ -253,9 +218,6 @@ namespace Asasingame.Core.Airplane.Runtimes
         {
             if(motionBlur)
             {
-                //float _deltatime = Time.deltaTime * motionBlur_changeSpeed;
-                //motionBlur.intensity.Override(Mathf.Lerp(motionBlur.intensity.value, value, 0.05f * _deltatime));
-
                 motionBlur.intensity.Override(value);
             }
         }
@@ -285,6 +247,24 @@ namespace Asasingame.Core.Airplane.Runtimes
             }
 
             viewMotionBlur = value;
+        }
+
+        public void CameraAxisControl(Vector2 xyAxis)
+        {
+            freeLook.m_YAxis.Value = xyAxis.y;
+            freeLook.m_XAxis.Value = xyAxis.x;
+        }
+
+        public void DisableFreeLookControlByInput()
+        {
+            freeLook.m_XAxis.m_InputAxisName = "";
+            freeLook.m_YAxis.m_InputAxisName = "";
+        }
+
+        public void EnableFreeLookControlByInput()
+        {
+            freeLook.m_XAxis.m_InputAxisName = "Mouse X";
+            freeLook.m_YAxis.m_InputAxisName = "Mouse Y";
         }
     }
 }

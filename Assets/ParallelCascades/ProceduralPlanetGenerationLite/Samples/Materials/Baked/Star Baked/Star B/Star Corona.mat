@@ -158,7 +158,7 @@ Material:
     - _Corona_Color: {r: 1, g: 0.8042764, b: 0.013689811, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Fresnel_Color: {r: 0.6603774, g: 0.29161784, b: 0.038625814, a: 0}
-    - _Object_Position: {r: 66670.18, g: 32037.3, b: -80283, a: 0}
+    - _Object_Position: {r: 0, g: 1.5, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

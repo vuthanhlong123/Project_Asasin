@@ -48,6 +48,7 @@ namespace Asasingame.Core.Airplane.Runtimes
         private float currentFov;
         private float currentShakeAmplitude;
         private float currentShakeFrequency;
+        private Vector2 currentCameraXYValue;
 
         private bool planeIsDead;
 
@@ -211,12 +212,17 @@ namespace Asasingame.Core.Airplane.Runtimes
         [Header("Shake")]
         [SerializeField] private Vector2 shakeAmplitudeRange;
         [SerializeField] private Vector2 shakeFrequencyRange;
+        [SerializeField] private Vector2 shakeAmplitudeFrequencySpaceJump;
         [SerializeField] private float shake_SpeedChange;
 
         [Header("FOV")]
         [SerializeField] private float defaultFOV;
         [SerializeField] private float turboFOV;
         [SerializeField] private float fov_SpeedChange;
+
+        [Header("Look")]
+        [SerializeField] private Vector2 spaceJumpCameraXYAsixValue;
+        [SerializeField] private float spaceJumpCameraXYAsixValueChangeSpeed;
 
         private Vector3 lastDirection;
         private Vector3 spaceJumpTargetDirection;
@@ -295,10 +301,13 @@ namespace Asasingame.Core.Airplane.Runtimes
                 {
                     Movement();
                     SidewaysForceCalculation();
+                    cameraController.EnableFreeLookControlByInput();
                 }
                 else if (airplaneMovementState == AirplaneMovementState.SpaceJump)
                 {
                     SpaceJumpMovement();
+                    cameraController.DisableFreeLookControlByInput();
+                    UpdateCameraLookXYValue();
                 }
             }
             else
@@ -566,11 +575,14 @@ namespace Asasingame.Core.Airplane.Runtimes
             targetEngineFireFXStrength = engineFireShaderFX_TurboStrength;
 
             //Shake
-            currentShakeAmplitude = shakeAmplitudeRange.y;
-            currentShakeFrequency = shakeFrequencyRange.y;
+            currentShakeAmplitude = shakeAmplitudeFrequencySpaceJump.x;
+            currentShakeFrequency = shakeAmplitudeFrequencySpaceJump.y;
 
             //Fov
             currentFov = turboFOV;
+
+            //LookControl
+            currentCameraXYValue = spaceJumpCameraXYAsixValue;
         }
 
         #endregion
@@ -866,6 +878,18 @@ namespace Asasingame.Core.Airplane.Runtimes
             }
         }
 
+        private void UpdateCameraLookXYValue()
+        {
+            if (!planeIsDead)
+            {
+                cameraController.CameraAxisControl(Vector2.Lerp(cameraController.CameraLookXYValue, currentCameraXYValue, spaceJumpCameraXYAsixValueChangeSpeed * Time.deltaTime));
+            }
+            else
+            {
+                cameraController.CameraAxisControl(Vector2.Lerp(cameraController.CameraLookXYValue, currentCameraXYValue, spaceJumpCameraXYAsixValueChangeSpeed * Time.deltaTime));
+            }
+        }
+
         private void SetupColliders(Transform _root)
         {
             if (_root == null)
@@ -1059,6 +1083,15 @@ namespace Asasingame.Core.Airplane.Runtimes
         public void DeActiveSpaceJumpMovement()
         {
             airplaneMovementState = AirplaneMovementState.Normal;
+        }
+
+        public void SpaceJumpToTargetMovement(Vector3 direction, Transform target)
+        {
+            spaceJumpTargetDirection = direction;
+            airplaneMovementState = AirplaneMovementState.SpaceJump;
+
+            transform.position = target.position;
+            transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
         }
 
         #endregion

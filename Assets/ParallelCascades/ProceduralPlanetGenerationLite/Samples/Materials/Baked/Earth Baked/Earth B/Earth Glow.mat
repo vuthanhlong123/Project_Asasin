@@ -167,7 +167,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Fresnel_Color: {r: 0.012874545, g: 0, b: 0.3283019, a: 0}
     - _Glow_Color: {r: 0, g: 0.05891135, b: 0.5773585, a: 1}
-    - _Object_Position: {r: -28.32, g: 109.8, b: 0, a: 0}
+    - _Object_Position: {r: 0, g: -1, b: 0, a: 0}
     - _Randomization_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

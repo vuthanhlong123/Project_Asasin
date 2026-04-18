@@ -1,3 +1,5 @@
+using Game.Runtimes.Managers;
+using System.Linq;
 using UnityEngine;
 
 namespace Game.Runtimes.SpaceJump
@@ -6,14 +8,22 @@ namespace Game.Runtimes.SpaceJump
     {
         public static SpaceJumpManager instance;
 
+        [SerializeField] private SpaceJumpGate[] gates;
+
         private void Awake()
         {
             instance = this;
         }
 
-        public void RunSpaceJump(string targetScene)
+        public SpaceJumpGate FindConnectGate(string sceneTarget)
         {
+            return gates.FirstOrDefault<SpaceJumpGate>(a => a.TargetScene == sceneTarget);
+        }
 
+        public SpaceJumpGate GetConnectGate()
+        {
+            string sceneTarget = GameSceneManager.instance.LastAdditiveSceneName;
+            return gates.FirstOrDefault<SpaceJumpGate>(a => a.TargetScene == sceneTarget);
         }
     }
 }
