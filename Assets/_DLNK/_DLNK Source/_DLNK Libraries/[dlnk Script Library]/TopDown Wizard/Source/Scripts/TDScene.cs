@@ -26,8 +26,22 @@ public class TDScene : MonoBehaviour
     void Start()
     {
         if ((PlayerChar) == null)
-        PlayerChar = GameObject.FindWithTag("Player").GetComponent<Collider>();
+        {
+            var playerObj = GameObject.FindWithTag("Player");
+            if (playerObj)
+            {
+                PlayerChar = playerObj.GetComponent<Collider>();
+            }
+        }
         previousFloor = ActiveFloor;
+    }
+
+    public void SetPlayerChar(GameObject player)
+    {
+        if (player)
+        {
+            PlayerChar = player.GetComponent<Collider>();
+        }
     }
 
     // Update is called once per frame

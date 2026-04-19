@@ -20,7 +20,7 @@ namespace Game.Runtimes.Managers
 
         private void Start()
         {
-            CreatePlayer(transform);
+           // CreatePlayer(transform);
         }
 
         public void CreatePlayer(Transform spawnPoint)

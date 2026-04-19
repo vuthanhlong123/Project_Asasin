@@ -11,8 +11,20 @@ namespace Asasingame.Core.Airplane.Runtimes
 
         public void DoSpaceJump(Vector3 direction, Action warpFXCompleted = null)
         {
+            if (IsOppositeDirection(transform.forward, direction)) return;
+
             warpSpeedFXControl.Active(warpFXCompleted);
             controller.ActiveSpaceJumpMovement(direction);
+        }
+
+        public bool IsOppositeDirection(Vector3 a, Vector3 b)
+        {
+            Vector3 normA = a.normalized;
+            Vector3 normB = b.normalized;
+
+            float dot = Vector3.Dot(normA, normB);
+
+            return dot <= 0f;
         }
 
         public void StopSpaceJump(float delay = 0f)

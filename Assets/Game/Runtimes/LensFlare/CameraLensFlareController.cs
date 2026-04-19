@@ -21,6 +21,8 @@ namespace Game.Runtimes.LensFlares
 
         private void Execute()
         {
+            Refresh();
+
             if (_mainCam == null) return;
 
             Vector3 direction = ((sunLight.transform.position + (-sunLight.transform.forward * 100000)) - _mainCam.transform.position);
@@ -38,7 +40,6 @@ namespace Game.Runtimes.LensFlares
         public void Refresh()
         {
             _mainCam = Camera.main;
-            Debug.Log(_mainCam.gameObject.name);
         }
     }
 }

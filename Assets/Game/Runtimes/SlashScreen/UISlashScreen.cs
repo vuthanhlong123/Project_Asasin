@@ -19,6 +19,9 @@ namespace Game.Runtimes.SlashScreen
         [SerializeField] private SlashScreenEvent OnMidTimeEnded = new SlashScreenEvent();
         [SerializeField] private SlashScreenEvent OnFadedOut = new SlashScreenEvent();
 
+        public event UnityAction FadedInEvent;
+        public event UnityAction MidTimeEndedEvent;
+        public event UnityAction FadedOutEvent;
 
         private void Start()
         {
@@ -32,15 +35,16 @@ namespace Game.Runtimes.SlashScreen
 
             FadeIn(() =>
             {
-                Debug.Log("aaaaaaaaaa");
                 OnFadedIn?.Invoke();
-                StartCoroutine(MidTime(() =>
+                FadedInEvent?.Invoke();
+            StartCoroutine(MidTime(() =>
                 {
-                    Debug.Log("'kkkkkkkkkkkk");
                     OnMidTimeEnded?.Invoke();
-                    FadeOut(() => { 
+                    MidTimeEndedEvent?.Invoke();
+                FadeOut(() => { 
                         image_Graphic.enabled = false;
                         OnFadedOut?.Invoke();
+                        FadedOutEvent?.Invoke();
                     });
                 }));
             });
@@ -48,7 +52,6 @@ namespace Game.Runtimes.SlashScreen
 
         private IEnumerator MidTime(Action onComplete = null)
         {
-            Debug.Log("hhhhhhh");
             yield return new WaitForSeconds(midDuration);
 
             onComplete?.Invoke();

@@ -21,6 +21,16 @@ namespace Asasingame.Core.SpaceWorld.Runtimes
 
         private void LateUpdate()
         {
+            if (mainCam == null)
+            {
+                mainCam = Camera.main;
+            }
+
+            if (mainCam == null)
+            {
+                return;
+            }
+
             Vector3 direction = mainCam.transform.position - defaultPos;
             float distance = direction.magnitude;
 
@@ -33,7 +43,9 @@ namespace Asasingame.Core.SpaceWorld.Runtimes
                 transform.position = defaultPos;
             }
 
-            float scale = Mathf.Lerp(minScale, maxScale, maxScale / (distance));
+            float scale = Mathf.Lerp(minScale, maxScale, minDistance / (distance));
+            //float scale = Mathf.Lerp(minScale, maxScale, 1-( (distance - minDistance) / (maxDistance - minDistance)));
+
             transform.localScale = new Vector3(scale, scale, scale);
         }
     }

@@ -274,11 +274,21 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2210757537637558503, guid: dfe2bd435176d514597a6ab8e1736c0a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 760650623}
   m_SourcePrefab: {fileID: 100100000, guid: dfe2bd435176d514597a6ab8e1736c0a, type: 3}
 --- !u!4 &313368694 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1577914535423455837, guid: dfe2bd435176d514597a6ab8e1736c0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 313368693}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &313368695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2210757537637558503, guid: dfe2bd435176d514597a6ab8e1736c0a,
     type: 3}
   m_PrefabInstance: {fileID: 313368693}
   m_PrefabAsset: {fileID: 0}
@@ -411,6 +421,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: F3_Grey
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 7b5c9227d177ec248a8349ac8e0965be,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -545,9 +560,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Asasingame.Core.SpaceWorld.Runtimes.SpaceWorld_Planet
   maxDistance: 8000
-  minDistance: 1000
+  minDistance: 5000
   maxScale: 6000
-  minScale: 100
+  minScale: 1000
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,13 +656,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21429668, y: 0.7303257, z: -0.5239034, w: 0.38239574}
+  m_LocalRotation: {x: 0.57196057, y: 0.2398578, z: 0.1815665, w: 0.7631271}
   m_LocalPosition: {x: 9.922581, y: 6.1782203, z: -7.7593718}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 294690362}
-  m_LocalEulerAnglesHint: {x: 68.3, y: 115.4, z: -13.715}
+  m_LocalEulerAnglesHint: {x: 51.8, y: 68.1, z: 63.1}
 --- !u!114 &705507996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -832,12 +847,28 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 313368693}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 313368695}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a993083a84c48b449a6b5463a4af3cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Runtimes.SpaceJump.SpaceJumpGate
+--- !u!114 &760650623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313368695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51988a59905482546bd57dab9ede7c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Asasingame.Core.SpaceWorld.Runtimes.SpaceWorld_Planet
+  maxDistance: 8000
+  minDistance: 1000
+  maxScale: 700
+  minScale: 1
 --- !u!1 &878383980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,7 +1042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asasingame.Core.SpaceWorld.SpaceWorld_PlanetScaler
   scaleRange: {x: 0.1, y: 1}
   distanceRange: {x: 1000, y: 10000}
---- !u!1001 &1694748889
+--- !u!1001 &1716636674
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1021,43 +1052,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 280038769496101842, guid: 893c9eaca4d51cf4182f318d3ae2e992,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.469447e-17
-      objectReference: {fileID: 0}
-    - target: {fileID: 280038769496101842, guid: 893c9eaca4d51cf4182f318d3ae2e992,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.6915795e-24
-      objectReference: {fileID: 0}
-    - target: {fileID: 280038769496101842, guid: 893c9eaca4d51cf4182f318d3ae2e992,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 7.797801e-23
-      objectReference: {fileID: 0}
-    - target: {fileID: 280038769496101842, guid: 893c9eaca4d51cf4182f318d3ae2e992,
-        type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000000059173182
+      value: 0.000000059173104
       objectReference: {fileID: 0}
     - target: {fileID: 280038769496101842, guid: 893c9eaca4d51cf4182f318d3ae2e992,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.05837856
+      value: 0.05837848
       objectReference: {fileID: 0}
     - target: {fileID: 1224883769339815885, guid: 893c9eaca4d51cf4182f318d3ae2e992,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -279.6694
       objectReference: {fileID: 0}
     - target: {fileID: 1224883769339815885, guid: 893c9eaca4d51cf4182f318d3ae2e992,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 150.88342
       objectReference: {fileID: 0}
     - target: {fileID: 1224883769339815885, guid: 893c9eaca4d51cf4182f318d3ae2e992,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1505.3992
       objectReference: {fileID: 0}
     - target: {fileID: 1224883769339815885, guid: 893c9eaca4d51cf4182f318d3ae2e992,
         type: 3}
@@ -1099,36 +1115,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship
       objectReference: {fileID: 0}
-    - target: {fileID: 3919328399808521311, guid: 893c9eaca4d51cf4182f318d3ae2e992,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3919328399808521311, guid: 893c9eaca4d51cf4182f318d3ae2e992,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3919328399808521311, guid: 893c9eaca4d51cf4182f318d3ae2e992,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543698080559664383, guid: 893c9eaca4d51cf4182f318d3ae2e992,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.938894e-18
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543698080559664383, guid: 893c9eaca4d51cf4182f318d3ae2e992,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.3831587e-25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543698080559664383, guid: 893c9eaca4d51cf4182f318d3ae2e992,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.5595602e-23
-      objectReference: {fileID: 0}
     - target: {fileID: 5543698080559664383, guid: 893c9eaca4d51cf4182f318d3ae2e992,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -1137,7 +1123,7 @@ PrefabInstance:
     - target: {fileID: 5543698080559664383, guid: 893c9eaca4d51cf4182f318d3ae2e992,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000000111204024
+      value: 0.00000011120395
       objectReference: {fileID: 0}
     - target: {fileID: 5543698080559664383, guid: 893c9eaca4d51cf4182f318d3ae2e992,
         type: 3}
@@ -1147,47 +1133,17 @@ PrefabInstance:
     - target: {fileID: 5543698080559664383, guid: 893c9eaca4d51cf4182f318d3ae2e992,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.11005818
-      objectReference: {fileID: 0}
-    - target: {fileID: 8038413866076013927, guid: 893c9eaca4d51cf4182f318d3ae2e992,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8038413866076013927, guid: 893c9eaca4d51cf4182f318d3ae2e992,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.047228
-      objectReference: {fileID: 0}
-    - target: {fileID: 8038413866076013927, guid: 893c9eaca4d51cf4182f318d3ae2e992,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -20.054855
-      objectReference: {fileID: 0}
-    - target: {fileID: 9169372987072676973, guid: 893c9eaca4d51cf4182f318d3ae2e992,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.469447e-17
-      objectReference: {fileID: 0}
-    - target: {fileID: 9169372987072676973, guid: 893c9eaca4d51cf4182f318d3ae2e992,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.6915795e-24
-      objectReference: {fileID: 0}
-    - target: {fileID: 9169372987072676973, guid: 893c9eaca4d51cf4182f318d3ae2e992,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 7.797801e-23
+      value: 0.11005811
       objectReference: {fileID: 0}
     - target: {fileID: 9169372987072676973, guid: 893c9eaca4d51cf4182f318d3ae2e992,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.00000008528747
+      value: 0.0000000852874
       objectReference: {fileID: 0}
     - target: {fileID: 9169372987072676973, guid: 893c9eaca4d51cf4182f318d3ae2e992,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.08431643
+      value: 0.084316365
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1213,13 +1169,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Asasingame.Core.SpaceWorld.Runtimes.SpaceWorld_Planet
   maxDistance: 8000
-  minDistance: 1000
+  minDistance: 2000
   maxScale: 30
-  minScale: 2
+  minScale: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 294690362}
   - {fileID: 396539498}
-  - {fileID: 1694748889}
+  - {fileID: 1716636674}

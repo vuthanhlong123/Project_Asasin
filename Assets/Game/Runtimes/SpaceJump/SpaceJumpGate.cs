@@ -1,6 +1,7 @@
 using Asasingame.Core.Airplane.Runtimes;
 using Game.Runtimes.Managers;
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Game.Runtimes.SpaceJump
@@ -32,15 +33,22 @@ namespace Game.Runtimes.SpaceJump
 
             spaceJumper.DoSpaceJump(transform.forward, warpFXCompleted: () =>
             {
-                MoveToNewWorld(() =>
+                StartCoroutine(DelayMoveToNewWorld(spaceJumper));
+            });
+        }
+
+        private IEnumerator DelayMoveToNewWorld(AirplaneSpaceJump spaceJumper)
+        {
+            yield return new WaitForSeconds(15);
+
+            MoveToNewWorld(() =>
+            {
+                SpaceJumpGate targetGate = SpaceJumpManager.instance.GetConnectGate();
+                if (targetGate != null)
                 {
-                    SpaceJumpGate targetGate = SpaceJumpManager.instance.GetConnectGate();
-                    if (targetGate != null)
-                    {
-                        spaceJumper.MoveToTargetJump(targetGate.transform);
-                    }
-                    spaceJumper.StopSpaceJump(2);
-                });
+                    spaceJumper.MoveToTargetJump(targetGate.transform);
+                }
+                spaceJumper.StopSpaceJump(2);
             });
         }
 
