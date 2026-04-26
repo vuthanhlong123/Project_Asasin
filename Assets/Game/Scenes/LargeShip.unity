@@ -559,10 +559,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51988a59905482546bd57dab9ede7c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Asasingame.Core.SpaceWorld.Runtimes.SpaceWorld_Planet
-  maxDistance: 8000
+  maxDistance: 9000
   minDistance: 5000
   maxScale: 6000
-  minScale: 1000
+  minScale: 2500
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,10 +865,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51988a59905482546bd57dab9ede7c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Asasingame.Core.SpaceWorld.Runtimes.SpaceWorld_Planet
-  maxDistance: 8000
+  maxDistance: 9000
   minDistance: 1000
   maxScale: 700
-  minScale: 1
+  minScale: 0
 --- !u!1 &878383980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,6 +1115,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship
       objectReference: {fileID: 0}
+    - target: {fileID: 2031373055304431907, guid: 893c9eaca4d51cf4182f318d3ae2e992,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5543698080559664383, guid: 893c9eaca4d51cf4182f318d3ae2e992,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -1168,10 +1173,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51988a59905482546bd57dab9ede7c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Asasingame.Core.SpaceWorld.Runtimes.SpaceWorld_Planet
-  maxDistance: 8000
-  minDistance: 2000
+  maxDistance: 9000
+  minDistance: 1500
   maxScale: 30
-  minScale: 1
+  minScale: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

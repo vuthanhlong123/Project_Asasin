@@ -49,7 +49,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: 3290463317715211006}
   - {fileID: -7191465436062636283}
-  m_RendererFeatureMap: fe52de2ef412aa2d05a7fcb449c8329c
+  - {fileID: 5485960784951258222}
+  m_RendererFeatureMap: fe52de2ef412aa2d05a7fcb449c8329c6e2cbe9e440c224c
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
@@ -99,3 +100,41 @@ MonoBehaviour:
       surfaceData: 2
     screenSpaceSettings:
       normalBlend: 0
+--- !u!114 &5485960784951258222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf716a1be50b448e7b1d1968ab734946, type: 3}
+  m_Name: ShinySSRR
+  m_EditorClassIdentifier: ScreenSpaceReflections::ShinySSRR.ShinySSRR
+  m_Active: 1
+  renderPassEvent: 300
+  useDeferred: 0
+  enableScreenSpaceNormalsPass: 0
+  customSmoothnessMetallicPass: 0
+  customSmoothnessMetallicPassSource: 0
+  ignorePostProcessingOption: 0
+  cameraLayerMask:
+    serializedVersion: 2
+    m_Bits: 2147483648
+  ignoreReflectionProbes: 1
+--- !u!114 &8444294267569791104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5028f2f00df2eb2418e473937e9ae556, type: 3}
+  m_Name: ReflectRenderPass
+  m_EditorClassIdentifier: Assembly-CSharp::ReflectRenderPass
+  m_Active: 1
+  renderPass: 550
+  passIndex: 0
