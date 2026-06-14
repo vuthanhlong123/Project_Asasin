@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf716a1be50b448e7b1d1968ab734946, type: 3}
   m_Name: ShinySSRR
   m_EditorClassIdentifier: ScreenSpaceReflections::ShinySSRR.ShinySSRR
-  m_Active: 1
+  m_Active: 0
   renderPassEvent: 300
   useDeferred: 0
   enableScreenSpaceNormalsPass: 0
