@@ -8,6 +8,7 @@ namespace Game.Runtimes.Station
         [SerializeField] private TDScene tdScene;
         [SerializeField] private Transform wakeUpSpawnPoint;
         [SerializeField] private Transform moveInSpawnPoint;
+        [SerializeField] private bool isTest;
 
         public Transform WakeUpSpawnPoint => wakeUpSpawnPoint;
         public Transform MoveInSpawnPoint => moveInSpawnPoint;
@@ -16,7 +17,7 @@ namespace Game.Runtimes.Station
         {
             if(HumanPlayerManager.Instance)
             {
-                var player = HumanPlayerManager.Instance.CreatePlayerStartUp(wakeUpSpawnPoint);
+                var player = HumanPlayerManager.Instance.CreatePlayerStartUp(!isTest ? wakeUpSpawnPoint : moveInSpawnPoint);
                 if (player != null)
                 {
                     tdScene.SetPlayerChar(player);

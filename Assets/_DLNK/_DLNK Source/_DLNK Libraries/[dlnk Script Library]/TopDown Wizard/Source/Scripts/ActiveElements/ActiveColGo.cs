@@ -19,8 +19,10 @@ public class ActiveColGo : MonoBehaviour
     {
         //Debug.Log("hey! im working! cuz" + trig + "has entered and my player is: " + tdscene.PlayerChar.gameObject.GetComponent<Collider>());
         //Check character in range and keycode pressed or automatic to start action
+        Debug.Log(trig.gameObject.name);
         if (trig.GetComponent<Collider>() == tdscene.PlayerChar)
         {
+            Debug.Log("Passed: "+ tdscene.PlayerChar);
             hasexit = false;
             actived = true;
         }

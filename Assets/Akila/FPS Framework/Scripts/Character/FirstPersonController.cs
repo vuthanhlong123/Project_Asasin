@@ -137,8 +137,8 @@ namespace Akila.FPSFramework
 
         private Vector3 slopeDirection;
 
-        private float yRotation = 0;
-        private float xRotation = 0;
+        protected float yRotation = 0;
+        protected float xRotation = 0;
 
         private float speed;
 
@@ -433,7 +433,7 @@ namespace Akila.FPSFramework
             CollisionFlags = controller.Move(totalVel * Time.deltaTime);
 
             //rotate camera
-            UpdateCameraRotation();
+            //UpdateCameraRotation();
 
             tacticalSprintAmount = CharacterInput.TacticalSprintInput ? 1 : 0;
 

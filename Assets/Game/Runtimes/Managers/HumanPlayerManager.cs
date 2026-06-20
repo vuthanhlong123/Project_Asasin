@@ -22,8 +22,9 @@ namespace Game.Runtimes.Managers
         {
             if (playerStartUped) return null;
 
-            currentPlayer = Instantiate(sample_Player, spawnPoint.position, spawnPoint.rotation, fpsManager.transform);
             fpsManager.SetActive(true);
+            currentPlayer = Instantiate(sample_Player, spawnPoint.position, spawnPoint.rotation, fpsManager.transform);
+            Debug.Log(currentPlayer.transform.position);
 
             playerStartUped = true;
 

@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "GamePlayInput",
+    "maps": [
+        {
+            "name": "PC",
+            "id": "db80bdbd-9a03-4bb4-9736-e93e69f476fa",
+            "actions": [
+                {
+                    "name": "Interaction",
+                    "type": "Button",
+                    "id": "80bc516e-825d-4512-984c-22dc1e3fbbd7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b148eae2-b8d7-4ab9-96b6-88d4951a1a18",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

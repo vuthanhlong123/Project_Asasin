@@ -27,6 +27,7 @@ public class TDScene : MonoBehaviour
     {
         if ((PlayerChar) == null)
         {
+            Debug.Log(PlayerChar);
             var playerObj = GameObject.FindWithTag("Player");
             if (playerObj)
             {
@@ -38,6 +39,7 @@ public class TDScene : MonoBehaviour
 
     public void SetPlayerChar(GameObject player)
     {
+        Debug.Log(player);
         if (player)
         {
             PlayerChar = player.GetComponent<Collider>();
