@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MaleHeavyStation
+  m_Controller: {fileID: 9100000, guid: 84549f1defae3f046b193abc1e4d8dec, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 3d7d111cdb5d5a54c8e6883a486d2837,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 3d7d111cdb5d5a54c8e6883a486d2837,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 361a23a8bd73d8d4bbb0280fe1409f88, type: 2}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 07ceda90213aefc48a4d9ec590722f80,
+      type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 24379e5c5c93b354d8f204a98293805d,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 07ceda90213aefc48a4d9ec590722f80,
+      type: 3}
