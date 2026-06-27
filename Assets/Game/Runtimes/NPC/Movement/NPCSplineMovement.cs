@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -17,6 +18,8 @@ namespace Game.Runtimes.NPC.Movement
         private void Start()
         {
             InitPosition();
+
+            this.enabled = false;
         }
 
         private void Update()
@@ -61,6 +64,29 @@ namespace Game.Runtimes.NPC.Movement
         public float Forward()
         {
             return currentMoveSpeed / moveSpeed;
+        }
+
+        public void Rotate(Vector3 euler, float duration)
+        {
+            if(HandleRotateCoroutine != null)
+            {
+                StopCoroutine(HandleRotateCoroutine);
+            }
+
+            HandleRotateCoroutine = StartCoroutine(HandleRotate(euler, duration));
+        }
+
+        private Coroutine HandleRotateCoroutine;
+
+        private IEnumerator HandleRotate(Vector3 euler, float duration)
+        {
+            float start = Time.time;
+            Vector3 startEuler = transform.eulerAngles;
+            while (Time.time - start < duration)
+            {
+                yield return null;
+                transform.eulerAngles = Vector3.Slerp(startEuler, euler, (Time.time - start) / duration);
+            }
         }
     }
 }

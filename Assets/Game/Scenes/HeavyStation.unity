@@ -4710,7 +4710,7 @@ MonoBehaviour:
   AnimationFloorLevel: 0.001
   _Editor_Foldout_Setup_LegsList: 1
   _Editor_EnsureCount: 0
-  _Editor_OnValidateTrigger: 0
+  _Editor_OnValidateTrigger: 1
   _EditorAllowAutoUpdateFeetParams: 1
   _EditorCategory: 2
   _EditorSetupCategory: 0
@@ -4816,6 +4816,18 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &51121453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51121446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd60fc782ca5ea0429da93c83f61c4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Runtimes.NPC.NPCHandler
 --- !u!1001 &51942354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46690,6 +46702,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1583200213}
+    - targetCorrespondingSourceObject: {fileID: 3411279790089948642, guid: bc0db8f04b753bd49b7f06ae6ab40513,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1583200214}
   m_SourcePrefab: {fileID: 100100000, guid: bc0db8f04b753bd49b7f06ae6ab40513, type: 3}
 --- !u!1001 &718798999
 PrefabInstance:
@@ -58964,6 +58980,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 51121452}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 342881400ff47c54fb07b2b9edf5e687,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 51121453}
   m_SourcePrefab: {fileID: 100100000, guid: 342881400ff47c54fb07b2b9edf5e687, type: 3}
 --- !u!4 &870907635 stripped
 Transform:
@@ -84214,6 +84234,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2077786846}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 248984f6475d77e4e8d70c522c989cf5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2077786847}
   m_SourcePrefab: {fileID: 100100000, guid: 248984f6475d77e4e8d70c522c989cf5, type: 3}
 --- !u!1001 &1253963664
 PrefabInstance:
@@ -109049,7 +109073,7 @@ MonoBehaviour:
   AnimationFloorLevel: 0.001
   _Editor_Foldout_Setup_LegsList: 1
   _Editor_EnsureCount: 0
-  _Editor_OnValidateTrigger: 0
+  _Editor_OnValidateTrigger: 1
   _EditorAllowAutoUpdateFeetParams: 1
   _EditorCategory: 2
   _EditorSetupCategory: 0
@@ -109155,6 +109179,18 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &1583200214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583200207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd60fc782ca5ea0429da93c83f61c4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Runtimes.NPC.NPCHandler
 --- !u!4 &1584115542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3516840307859801163, guid: bae28f76a5e4a1442aa58d0f227271ee,
@@ -109952,6 +109988,62 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1603496176}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1606099317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1606099319}
+  - component: {fileID: 1606099318}
+  m_Layer: 0
+  m_Name: GameScripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1606099318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606099317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23b923f07cff5042848eb16e0420e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Runtimes.BehaviorScripts.HeavyStation.HeavyStationScriptsManager
+  capton: {fileID: 0}
+  female: {fileID: 0}
+  male: {fileID: 0}
+  hologramMaterial: {fileID: 0}
+  hologramGO: {fileID: 0}
+  _wakeUpScriptProperty:
+    captonSound: {fileID: 8300000, guid: f59a26ff653d408408653d6fca7fab95, type: 3}
+    SpeakerPoint: {fileID: 1847249430}
+  _welComeScriptProperty:
+    captonEuler: {x: 0, y: 0, z: 0}
+    captonSound: {fileID: 0}
+    captonWelcomeClip: {fileID: 0}
+--- !u!4 &1606099319
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606099317}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.48788, y: 2.70774, z: 1.74439}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1608994465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113619,7 +113711,7 @@ MonoBehaviour:
   tdScene: {fileID: 294690363}
   wakeUpSpawnPoint: {fileID: 193907050}
   moveInSpawnPoint: {fileID: 2018055472}
-  isTest: 1
+  isTest: 0
 --- !u!114 &1661898000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125802,6 +125894,157 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 174665337}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1847249427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1847249429}
+  - component: {fileID: 1847249428}
+  - component: {fileID: 1847249430}
+  m_Layer: 0
+  m_Name: PlayerBedRoomSpeaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1847249428
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847249427}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 100
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 1
+  BypassListenerEffects: 1
+  BypassReverbZones: 1
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.01
+      value: 1
+      inSlope: -3.0443451
+      outSlope: -3.0443451
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.16570656
+    - serializedVersion: 3
+      time: 0.2963303
+      value: 0.38529855
+      inSlope: -1.010101
+      outSlope: -1.010101
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.19785684
+      outSlope: -0.19785684
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.17235823
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1847249429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847249427}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.030833082, y: -20.765, z: -1.218}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1847249430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847249427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73b63484defa32478b513c1e4d33abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpeakerPoint
 --- !u!1001 &1847780413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -149538,7 +149781,7 @@ MonoBehaviour:
   AnimationFloorLevel: 0.001
   _Editor_Foldout_Setup_LegsList: 1
   _Editor_EnsureCount: 0
-  _Editor_OnValidateTrigger: 0
+  _Editor_OnValidateTrigger: 1
   _EditorAllowAutoUpdateFeetParams: 1
   _EditorCategory: 2
   _EditorSetupCategory: 2
@@ -149644,6 +149887,18 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &2077786847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077786840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd60fc782ca5ea0429da93c83f61c4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Runtimes.NPC.NPCHandler
 --- !u!1 &2078364268 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100014, guid: 72696c59f2331984ba67d602cf17c997,
@@ -164983,3 +165238,5 @@ SceneRoots:
   - {fileID: 847976348}
   - {fileID: 1162070899}
   - {fileID: 1849489112}
+  - {fileID: 1606099319}
+  - {fileID: 1847249429}
