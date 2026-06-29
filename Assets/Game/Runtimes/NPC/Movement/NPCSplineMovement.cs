@@ -85,7 +85,11 @@ namespace Game.Runtimes.NPC.Movement
             while (Time.time - start < duration)
             {
                 yield return null;
-                transform.eulerAngles = Vector3.Slerp(startEuler, euler, (Time.time - start) / duration);
+                float angelX = Mathf.LerpAngle(startEuler.x, euler.x, (Time.time - start) / duration);
+                float angelY = Mathf.LerpAngle(startEuler.y, euler.y, (Time.time - start) / duration);
+                float angelZ = Mathf.LerpAngle(startEuler.z, euler.z, (Time.time - start) / duration);
+
+                transform.eulerAngles = new Vector3(angelX, angelY, angelZ);
             }
         }
     }

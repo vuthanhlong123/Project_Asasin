@@ -94,10 +94,10 @@ Material:
     - _Direction_B: {r: 1, g: 0, b: 0, a: 0}
     - _Displacement_Direction: {r: 0, g: 1, b: 0, a: 0}
     - _Displacement_Noise_Direction: {r: 0, g: 1, b: 0, a: 0}
-    - _Hologram_Color: {r: 0, g: 0.43231788, b: 1, a: 1}
+    - _Hologram_Color: {r: 0, g: 0.4323166, b: 1, a: 0}
     - _Pattern_Direction: {r: 0, g: -1, b: 0, a: 0}
     - _Pattern_Direction_Horizontal: {r: 0, g: 1, b: 0, a: 0}
     - _Pattern_Direction_Vertical: {r: 1, g: 0, b: 0, a: 0}
-    - _Texture_Tint_Color: {r: 0, g: 0.37397546, b: 0.4433961, a: 0.49019608}
+    - _Texture_Tint_Color: {r: 0, g: 0, b: 0.44339475, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

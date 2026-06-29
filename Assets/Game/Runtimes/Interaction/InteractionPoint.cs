@@ -20,7 +20,7 @@ namespace Game.Runtimes.Interaction
         [SerializeField] private float holdTime = 1;
 
         [SerializeField]
-        private UnityEvent<GameObject> onInteract;
+        private UnityEvent<GameObject> onInteract = new UnityEvent<GameObject>();
 
         private void OnTriggerEnter(Collider other)
         {
