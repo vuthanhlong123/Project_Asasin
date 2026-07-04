@@ -159,6 +159,13 @@ namespace Game.Runtimes.BehaviorScripts.HeavyStation
         }
         #endregion
 
+        public void HideNPC()
+        {
+            capton.gameObject.SetActive(false);
+            female.gameObject.SetActive(false);
+            male.gameObject.SetActive(false);
+        }
+
         [Serializable]
         public class WakeUpScriptProperty
         {
